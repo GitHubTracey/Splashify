@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
+import {
+  NavigationProvider,
+  StackNavigation,
+} from '@exponent/ex-navigation';
+
 import { View } from 'react-native';
-import Random from './components/scenes/Random';
+// import Random from './scenes/Random';
+import { appStyles } from './config/styles.js'
+import { Router } from './navigation/routes.js'
+import { NavigationLayout } from './navigation/routes.js'
 
 export default class Splashify extends Component {
   render() {
     return (
-      <View>
-        <Random />
-      </View>
+      <NavigationProvider router={Router}>
+        <StackNavigation initialRoute={Router.getRoute('navigationLayout')} />
+      </NavigationProvider>
     );
   }
 }
+/*
+ */
