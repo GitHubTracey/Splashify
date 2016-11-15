@@ -1,11 +1,17 @@
 import React, { Component, } from 'react';
 import { View, } from 'react-native';
 
-class Snippet extends Component {
+class SnippetContainer extends Component {
 
    static propTypes = {};
 
    static defaultProps = {};
+
+    static route = {
+        navigationBar: {
+            title: 'Snippet',
+        }
+    }
 
    constructor(props) {
       super(props);
@@ -21,4 +27,4 @@ class Snippet extends Component {
    }
 }
 
-export default Snippet;
+export default SnippetContainer;

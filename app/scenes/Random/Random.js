@@ -5,24 +5,20 @@ import {
     Text,
 } from 'react-native';
 import { randomStyles } from './styles.js'
-import UserAvatar from '../../UserAvatar'
+// import UserAvatar from '../../components/UserAvatar'
 
 const Random = (props) => {
     return (
-        <View>
-            <Text style={randomStyles.container}>Random</Text>
+        <View style={randomStyles.container}>
             <Image
                 resizeMode={'cover'}
                 source={{ uri: props.randomPhoto.urls.raw }}
                 style={randomStyles.image}
-                />
-                <UserAvatar />
+                >
+                </Image>
         </View>
     )
 }
-/*
-                <UserAvatar user={ props.randomPhoto.user}/>
-*/
 Random.propTypes = {
     randomPhoto: React.PropTypes.object.isRequired
 }

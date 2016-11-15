@@ -7,28 +7,23 @@ import {
 } from 'react-native';
 import { avatarStyles } from './styles.js'
 
-const UserAvatar = () => {
+const UserAvatar = (props) => {
     return (
         <View style={avatarStyles.container} >
             <View style={avatarStyles.user} >
-                <Text>This is a test</Text>
+                <Image
+                    source={{ uri: props.user.profile_image.large }}
+                    resizeMode={'contain'}
+                    style={avatarStyles.image}
+                    />
             </View>
+                <Text style={avatarStyles.text}>{props.user.name}</Text>
         </View>
     )
 }
 /*
-            <Image
-                source={{ uri: props.profile_image.small }}
-                resizeMode={'contain'}
-                style={avatarStyles.image}
-                />
-            <Text style={avatarStyles.text}>{props.usr.profile_image.small}</Text>
-            <Text style={avatarStyles.text}>{props.usr.first_name}</Text>
-            <Text style={avatarStyles.text}>{props.usr.last_name}</Text>
-            <Text style={avatarStyles.text}>{props.first_name} {props.last_name}</Text>
-
+*/
 UserAvatar.propTypes = {
     user: React.PropTypes.object.isRequired
 }
-*/
 export default UserAvatar;
