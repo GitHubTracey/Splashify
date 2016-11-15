@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-export default class HelloWorld extends Component {
+import { View } from 'react-native';
+import Random from './components/scenes/Random';
+
+export default class Splashify extends Component {
   render() {
     return (
-      <View><Text>Welcome to React Native!</Text></View>
+      <View>
+        <Random />
+      </View>
     );
   }
 }
