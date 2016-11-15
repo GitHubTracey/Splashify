@@ -40,6 +40,10 @@ class RandomContainer extends Component {
                 <ActivityIndicator animating={true} size="small" color="black" />
             );
         } else {
+            console.log(this.state.randomPhoto)
+            console.log(this.state.randomPhoto.user.first_name)
+            console.log(this.state.randomPhoto.user.last_name)
+            console.log(this.state.randomPhoto.user.profile_image.small)
             return (
                 <Random randomPhoto={this.state.randomPhoto } />
             )

@@ -6,13 +6,14 @@ import {
 export const randomStyles = StyleSheet.create({
     container: {
         flex: 1,
+        width: undefined,
+        height: undefined,
         justifyContent: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'transparent',
     },
     image: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height*0.8,
-        
+        height: Dimensions.get('window').height,
     },
     text: {
         margin: 10,
