@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import {
-    Image,
-    Text,
-    View,
-    ActivityIndicator,
-} from 'react-native';
+import React, { Component, PropTypes, } from 'react';
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
 import { randomStyles } from './styles.js'
 import Random from './Random';
-import UserAvatar from '../../components/UserAvatar'
+import Loader from '../../components/Loader'
 
 class RandomContainer extends Component {
 
+    static propTypes = {
+        route: PropTypes.object.isRequired,
+        navigation: PropTypes.object.isRequired,
+        navigator: PropTypes.object.isRequired,
+    };
     static route = {
         navigationBar: {
             title: 'Random',
@@ -43,15 +42,12 @@ class RandomContainer extends Component {
     render() {
         if (this.state.isLoading) {
             return (
-                <ActivityIndicator animating={true} size="small" color="black" />
+                <Loader />
             );
         } else {
-            console.log(this.state.randomPhoto.user)
+            console.log(this.state.randomPhoto)
             return (
-                <View>
                     <Random randomPhoto={this.state.randomPhoto} />
-                    <UserAvatar user={this.state.randomPhoto.user} />
-                </View>
             )
         }
     }

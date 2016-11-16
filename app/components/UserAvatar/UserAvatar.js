@@ -16,13 +16,13 @@ const UserAvatar = (props) => {
                     resizeMode={'contain'}
                     style={avatarStyles.image}
                     />
-            </View>
                 <Text style={avatarStyles.text}>{props.user.name}</Text>
+
+            </View>
         </View>
     )
 }
-/*
-*/
+
 UserAvatar.propTypes = {
     user: React.PropTypes.object.isRequired
 }

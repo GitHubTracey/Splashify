@@ -5,6 +5,5 @@ import {
 export const appStyles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 24, 
     },
 });
