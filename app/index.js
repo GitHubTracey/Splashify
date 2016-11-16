@@ -10,6 +10,10 @@ import { appStyles } from './config/styles.js'
 import { Router } from './navigation/routes.js'
 import { NavigationLayout } from './navigation/routes.js'
 
+
+/*
+default navigation: vertical
+*/
 export default class Splashify extends Component {
   render() {
     return (
