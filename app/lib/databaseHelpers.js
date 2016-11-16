@@ -5,12 +5,14 @@ import Realm from '../config/models.js';
     We can use it to conditionally render the colour of the star icon in the Photobox scene.
 */
 export const isPhotoFaved = (photoId) => {
-    let photo = realm.objects('Fave').filtered('id==$0', photoId)
-
-    if (photo.length > 0) {
+    let favedPhoto = realm.objects('Fave').filtered('id==$0', photoId)
+    favedPhoto[0] ? true : false;
+/*
+    if (favedPhoto.length > 0) {
         return true;
     }
     return false;
+*/
 }
 /*
     A function that saves or deletes a photo as a fave. If the photo is already faved it should be 
