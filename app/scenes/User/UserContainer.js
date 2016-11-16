@@ -19,13 +19,12 @@ class UserContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
     }
 
     render(props) {
         return (
             <View>
-                <User name={props.name} />
+                <User name={this.props.name} />
             </View>
         );
     }

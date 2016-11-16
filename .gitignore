@@ -42,3 +42,4 @@ android/keystores/debug.keystore
 
 #my ignores
 /app/config/apikeys.js
+/playarea

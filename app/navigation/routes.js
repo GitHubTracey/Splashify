@@ -22,3 +22,5 @@ export const Router = createRouter(() => ({
   recent: () => Recent,
   user: () => User,
 }));
+
+export default Router
