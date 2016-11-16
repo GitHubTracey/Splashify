@@ -1,28 +1,26 @@
 import React from 'react';
 import {
-    View,
-    Image,
-    Text,
+    View, Image
 } from 'react-native';
 import { styles } from './styles.js'
-import UserAvatar from '../../components/UserAvatar'
+import UserAvatar from '../UserAvatar'
 
-const Random = (props) => {
+const Photo = (props) => {
     return (
         <View>
             <Image
                 resizeMode={'cover'}
-                source={{ uri: props.randomPhoto.urls.raw }}
+                source={{ uri: props.photo.urls.raw }}
                 style={styles.image}
                 />
             <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} />
+                <UserAvatar user={props.photo.user} />
             </View>
         </View>
     )
 }
-Random.propTypes = {
-    randomPhoto: React.PropTypes.object.isRequired
+Photo.propTypes = {
+    photo: React.PropTypes.object.isRequired
 }
 
-export default Random;
+export default Photo;

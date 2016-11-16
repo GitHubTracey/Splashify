@@ -5,6 +5,7 @@ import User from './User'
 class UserContainer extends Component {
 
     static propTypes = {
+        name: React.PropTypes.string.isRequired,
         route: PropTypes.object.isRequired,
         navigation: PropTypes.object.isRequired,
         navigator: PropTypes.object.isRequired,
@@ -21,10 +22,10 @@ class UserContainer extends Component {
         this.state = {};
     }
 
-    render() {
+    render(props) {
         return (
             <View>
-                <User />
+                <User name={props.name} />
             </View>
         );
     }

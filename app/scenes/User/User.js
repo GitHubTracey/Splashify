@@ -1,15 +1,16 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const StatelessSnippet = () => {
+const User = (props) => {
     return (
         <View>
-            <Text>The Cat in the Hat knows a lot about that. User! </Text>
+            <Text>The Name is: {props.name}</Text>
         </View>
     );
 }
 
-StatelessSnippet.propTypes = {};
-StatelessSnippet.defaultProps = {};
+User.propTypes = {
+    name: React.PropTypes.string.isRequired,
+}
 
-export default StatelessSnippet;
+export default User;

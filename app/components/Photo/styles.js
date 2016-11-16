@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
     image: {
         backgroundColor: 'transparent',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        height: Dimensions.get('window').height*0.41,
+        zIndex: 0,
     },
     userAvatar: {
         position: 'absolute',
