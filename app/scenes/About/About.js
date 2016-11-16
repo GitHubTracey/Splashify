@@ -5,7 +5,6 @@ import {
     Dimensions,
 } from 'react-native';
 import Router from '../../navigation/routes.js'
-import {Route} from './AboutContainer'
 
 export const styles = StyleSheet.create({
     container: {

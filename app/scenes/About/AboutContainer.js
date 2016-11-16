@@ -2,6 +2,7 @@ import React, { Component, PropTypes, } from 'react';
 import { View, Text } from 'react-native';
 import About from './About'
 import Router from '../../navigation/routes.js'
+import { _goToUser } from '../../lib/navigationHelpers.js'
 
 class AboutContainer extends Component {
 
@@ -15,29 +16,29 @@ class AboutContainer extends Component {
             title: 'About',
         }
     }
-
-    _goToUser() {
-        console.log(this)
-        this.props.navigator.push(Router.getRoute('user', {name: 'this guy'}));
-    }
     constructor(props) {
         super(props)
-        this._goToUser = this._goToUser.bind(this)
+        this.state = {
+            name: 'this guy',
+        }
     }
+    componentWillMount() {
+        this._goToUser = _goToUser(this.props.navigator, this.state.name).bind(this)
+
+        console.log(this._goToUser)
+    }
+    // _goToUser() {
+    //     console.log(this)
+    //     this.props.navigator.push(Router.getRoute('user', {name: this.state.name}));
+    // }
 
     render() {
         return (
             <View>
-                <About goToUser={this._goToUser}/>
+                <About goToUser={this._goToUser} />
             </View>
         );
     }
 }
-
-export const Route = AboutContainer.route = {
-        navigationBar: {
-            title: 'About',
-        }
-    }
 
 export default AboutContainer;
