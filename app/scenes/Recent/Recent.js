@@ -11,7 +11,7 @@ const Recent = (props) => {
                 <ListView
                     dataSource={props.recentPhotoBlob}
                     renderRow={(data) =>
-                        <Photo photo={data} />
+                        <Photo photo={data} nav={props.nav}  mainNav={props.mainNav} />
                 }
                     renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
                     />
@@ -20,7 +20,9 @@ const Recent = (props) => {
 }
 
 Recent.propTypes = {
-    recentPhotoBlob: React.PropTypes.object.isRequired
+    recentPhotoBlob: React.PropTypes.object.isRequired,
+    nav: React.PropTypes.object.isRequired,
+    mainNav: React.PropTypes.object.isRequired,
 }
 
 //      <PhotoGallery photoBlob={props.recentPhotoBlob} />

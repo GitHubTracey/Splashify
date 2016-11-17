@@ -8,6 +8,7 @@ import { styles } from './styles.js'
 import UserAvatar from '../../components/UserAvatar'
 
 const Random = (props) => {
+        console.log('Random, props: ', props)
     return (
         <View>
             <Image
@@ -16,13 +17,14 @@ const Random = (props) => {
                 style={styles.image}
                 />
             <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} />
+                <UserAvatar user={props.randomPhoto.user} nav={props.nav} />
             </View>
         </View>
     )
 }
 Random.propTypes = {
-    randomPhoto: React.PropTypes.object.isRequired
+    randomPhoto: React.PropTypes.object.isRequired,
+    nav: React.PropTypes.object.isRequired,
 }
 
 export default Random;

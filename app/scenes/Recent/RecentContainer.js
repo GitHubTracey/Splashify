@@ -64,7 +64,7 @@ class RecentContainer extends Component {
             console.log('************RecentContainer**********')
             console.log(this.state.dataSource._dataBlob.s1)
             return (
-                <Recent recentPhotoBlob={this.state.dataSource}/>
+                <Recent recentPhotoBlob={this.state.dataSource} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
             );
         }
     }

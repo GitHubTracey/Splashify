@@ -8,6 +8,7 @@ import Favourites from '../scenes/Favourites'
 import Random from '../scenes/Random'
 import Recent from '../scenes/Recent'
 import User from '../scenes/User'
+import LightBox from '../scenes/LightBox'
 
 /**
   * This is where we map route names to route components. Any React
@@ -21,6 +22,7 @@ export const Router = createRouter(() => ({
   about: () => About,
   recent: () => Recent,
   user: () => User,
+  lightbox: () => LightBox,
 }));
 
 export default Router

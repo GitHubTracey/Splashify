@@ -40,18 +40,18 @@ class RandomContainer extends Component {
     }
 
     render() {
+        console.log('RandomContainer, this: ', this)
         if (this.state.isLoading) {
             return (
                 <Loader />
             );
         } else {
-            console.log(this.state.randomPhoto)
+            console.log('RandomContainer, image loaded: ', this.state.randomPhoto)
             return (
-                    <Random randomPhoto={this.state.randomPhoto} />
+                    <Random randomPhoto={this.state.randomPhoto} nav={this.props.navigator} />
             )
         }
     }
 }
-/*
- */
+
 export default RandomContainer;

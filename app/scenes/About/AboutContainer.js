@@ -24,8 +24,6 @@ class AboutContainer extends Component {
     }
     componentWillMount() {
         this._goToUser = _goToUser(this.props.navigator, this.state.name).bind(this)
-
-        console.log(this._goToUser)
     }
     // _goToUser() {
     //     console.log(this)

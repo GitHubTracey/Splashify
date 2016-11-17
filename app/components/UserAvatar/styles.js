@@ -1,6 +1,5 @@
 import {
     StyleSheet,
-    Dimensions,
 } from 'react-native';
 
 export const avatarStyles = StyleSheet.create({
@@ -9,7 +8,7 @@ export const avatarStyles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'white',
         opacity: 0.75,
-        justifyContent: 'center', 
+        justifyContent: 'flex-start', 
         alignItems: 'center',
     },
     image: {
@@ -27,17 +26,7 @@ export const avatarStyles = StyleSheet.create({
         margin: 12,
         fontSize: 16,
     },
-});
-/*
-    container: {
+    touchableArea : {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center', 
-        alignItems: 'flex-end',
-        marginBottom: 200,
-        backgroundColor: 'red',
-        //height: 72,
-        width: Dimensions.get('window').width,
-        opacity: 0.5,
-    },
- */
+    }
+});

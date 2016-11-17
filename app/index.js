@@ -18,7 +18,7 @@ export default class Splashify extends Component {
   render() {
     return (
       <NavigationProvider router={Router}>
-        <StackNavigation initialRoute={Router.getRoute('navigationLayout')} />
+        <StackNavigation initialRoute={Router.getRoute('navigationLayout')} id="mainStack" />
       </NavigationProvider>
     );
   }

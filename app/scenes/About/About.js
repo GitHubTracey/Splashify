@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     },
 });
 
-About = (props) => {
+const About = (props) => {
     return (
         <View style={styles.container}>
             <Image
@@ -23,6 +23,9 @@ About = (props) => {
             <Text onPress={props.goToUser}>Click Me!</Text>
         </View>
     );
+}
+About.propTypes = {
+    goToUser: React.PropTypes.func.isRequired,
 }
 
 export default About;

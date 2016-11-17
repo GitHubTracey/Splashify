@@ -1,24 +1,22 @@
 import React, { PropTypes, Component } from 'react';
 import {
     View,
-    ListView,
     Image,
     Text,
+    TouchableOpacity,
 } from 'react-native';
 import { avatarStyles } from './styles.js'
-// import { _goToPage } from '../../lib/navigationHelpers.js'
-import { withNavigation } from '@exponent/ex-navigation';
+import { _goToUser } from '../../lib/navigationHelpers.js'
 
-class UserAvatar extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
+const UserAvatar = (props) => {
+    console.log('UserAvatar, props: ', props)
+    return (
+        <TouchableOpacity
+            style={avatarStyles.touchableArea} 
+            onPress={_goToUser(props.nav, props.user.name).bind(this)}
+            activeOpacity={75 / 100}>
             <View style={avatarStyles.container} >
-                <View onPress={this._goToPage(this.props.navigator, 'user')} style={avatarStyles.user} >
+                <View style={avatarStyles.user} >
                     <Image
                         source={{ uri: props.user.profile_image.large }}
                         resizeMode={'contain'}
@@ -27,14 +25,13 @@ class UserAvatar extends Component {
                     <Text style={avatarStyles.text}>{props.user.name}</Text>
                 </View>
             </View>
-        )
-    }
+        </TouchableOpacity>
+    )
+
 }
 
 UserAvatar.propTypes = {
     user: React.PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired,
-    navigation: PropTypes.object.isRequired,
-    navigator: PropTypes.object.isRequired,
+    nav: React.PropTypes.object.isRequired,
 }
 export default UserAvatar;
