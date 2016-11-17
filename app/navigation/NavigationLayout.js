@@ -42,7 +42,7 @@ class NavigationLayout extends Component {
       <TabNavigation
         id="main"
         navigatorUID="main"
-        initialTab="recent">
+        initialTab="random">
         <TabItem
           id="recent"
           title="Recent"

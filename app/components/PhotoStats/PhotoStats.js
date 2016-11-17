@@ -3,17 +3,17 @@ import {
     View,
     Text,
 } from 'react-native';
-import { styles } from './styles.js'
+import { statStyles } from './styles.js'
 
 const PhotoStats = (props) => {
     console.log('PhotoStats, props: ', props)
     return (
-        <View style={styles.outercontainer}>
-            <View style={styles.container}>
-                <Text style={styles.statbox}>DOWNLOADS</Text>
-                <Text style={styles.statbox}>LIKES</Text>
-                <Text style={styles.statbox}>{photoBlob.downloads} </Text>
-                <Text style={styles.statbox}>{photoBlob.likes}</Text>
+        <View style={statStyles.outercontainer}>
+            <View style={statStyles.container}>
+                <Text style={statStyles.statbox}>DOWNLOADS</Text>
+                <Text style={statStyles.statbox}>LIKES</Text>
+                <Text style={statStyles.statbox}>{photoBlob.downloads} </Text>
+                <Text style={statStyles.statbox}>{photoBlob.likes}</Text>
             </View>
         </View>
     )

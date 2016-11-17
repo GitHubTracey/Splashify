@@ -48,7 +48,7 @@ class RandomContainer extends Component {
         } else {
             console.log('RandomContainer, image loaded: ', this.state.randomPhoto)
             return (
-                    <Random randomPhoto={this.state.randomPhoto} nav={this.props.navigator} />
+                    <Random randomPhoto={this.state.randomPhoto} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
             )
         }
     }

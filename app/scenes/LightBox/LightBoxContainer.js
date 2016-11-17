@@ -24,7 +24,7 @@ class LightBoxContainer extends Component {
     render() {
         console.log('LightBoxContainer photoBlob: ', this.props.photoBlob)
         return (
-            <LightBox photoBlob={this.props.photoBlob} />
+            <LightBox photoBlob={this.props.photoBlob} mainNav={this.props.navigation.getNavigator('mainStack')} />
         );
     }
 }

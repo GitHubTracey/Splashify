@@ -35,16 +35,13 @@ class UserContainer extends Component {
     }
 
     getUserPhotosJson() {
-        console.log('UserContainer,getUserPhotosJson - this.props: ', this.props)
         unsplash.users.photos(this.props.username, 1, 3, 'latest')
         .then(toJson)
         .then(json => {
             //your code
-            console.log('UserContainer,getUserPhotosJson - json', json)
            return getFullPhotoData(json)
         })
         .then(fullJsonResults => {
-            console.log('UserContainer,getUserPhotosJson - fullJsonResults', fullJsonResults)
             this.setState({
                 dataSource : this.ds.cloneWithRows(fullJsonResults)
             })

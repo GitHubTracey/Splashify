@@ -11,7 +11,7 @@ const Photo = (props) => {
         <View>
             <TouchableOpacity
                 style={styles.touchableArea}
-                onPress={_goToLightBox(props.mainNav, props.photo).bind(this)}
+                onPress={_goToLightBox(props.mainNav, props.photo, props.photo.user).bind(this)}
                 activeOpacity={75 / 100}>
                 <Image
                     resizeMode={'cover'}

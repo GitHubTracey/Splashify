@@ -4,10 +4,10 @@ import {
 } from 'react-native';
 
 export const styles = StyleSheet.create({
-    image: {
-        backgroundColor: 'transparent',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     userAvatar: {
         position: 'absolute',

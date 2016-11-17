@@ -8,7 +8,7 @@ export const _goToLightBox = (navigator, blob) => () => {
     navigator.push(Router.getRoute('lightbox', {photoBlob: blob}));
 }
 
-// export const _goBack = (navigator) => {
-//     if (navigator.getCurrentIndex() > 0)
-//         navigator.pop();
-// }
+export const _goBack = (navigator) => {
+    if (navigator.getCurrentIndex() > 0)
+        navigator.pop();
+}
