@@ -1,19 +1,15 @@
 import {
     StyleSheet,
-    Dimensions,
 } from 'react-native';
 
 export const avatarStyles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1, 
         flexDirection: 'row',
-        justifyContent: 'center', 
-        alignItems: 'flex-end',
-        marginBottom: 56,
-        backgroundColor: 'red',
-        //height: 72,
-        width: Dimensions.get('window').width,
-        opacity: 0.5,
+        backgroundColor: 'white',
+        opacity: 0.75,
+        justifyContent: 'flex-start', 
+        alignItems: 'center',
     },
     image: {
         width: 50,
@@ -21,13 +17,16 @@ export const avatarStyles = StyleSheet.create({
         borderRadius: 25,
     },
     user: {
-        padding: 12,
+        padding: 10,
         flexDirection: 'row',
+        flex: 1,
         alignItems: 'center',
     },
     text: {
-        flex: 1,
         margin: 12,
         fontSize: 16,
     },
+    touchableArea : {
+        flex: 1,
+    }
 });

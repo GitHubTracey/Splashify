@@ -9,7 +9,6 @@ import {
 
 import { Router } from './routes.js'
 import Octicons from 'react-native-vector-icons/Octicons'
-
 const iconSize = 24;
 
 
@@ -33,6 +32,9 @@ class NavigationLayout extends Component {
   static route = {
     navigationBar: {
       visible: false,
+      // backgroundColor: 'rgba(255,255,255,0.5)',
+      // tintColor: '#222',
+      // translucent: true,
     }
   }
   render() {
@@ -40,7 +42,7 @@ class NavigationLayout extends Component {
       <TabNavigation
         id="main"
         navigatorUID="main"
-        initialTab="recent">
+        initialTab="random">
         <TabItem
           id="recent"
           title="Recent"
@@ -104,18 +106,4 @@ export default NavigationLayout;
             initialRoute={Router.getRoute('search')}
           />
         </TabItem>
-
-original:
-        <TabItem
-          id="recent"
-          title="Recent"
-          selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Image source={require('./assets/images/home.png')} /> }
-          >
-          <StackNavigation
-            id="recent"
-            navigatorUID="recent"
-            initialRoute={Router.getRoute('recent')}
-          />
-        </TabItem>
-         */
+*/
