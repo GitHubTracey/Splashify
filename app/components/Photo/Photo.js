@@ -3,7 +3,6 @@ import {
     View, Image, TouchableOpacity
 } from 'react-native';
 import { styles } from './styles.js'
-import UserAvatar from '../UserAvatar'
 import { _goToLightBox } from '../../lib/navigationHelpers.js'
 
 const Photo = (props) => {
@@ -17,19 +16,29 @@ const Photo = (props) => {
                 <Image
                     resizeMode={'cover'}
                     source={{ uri: props.photo.urls.raw }}
-                    style={styles.image}
+                    style={{width: props.width, height: props.height, backgroundColor: 'transparent' }}
                     />
             </TouchableOpacity>
-            <View style={styles.userAvatar}>
-                <UserAvatar user={props.photo.user} nav={props.nav} />
-            </View>
         </View>
     )
 }
 Photo.propTypes = {
     photo: React.PropTypes.object.isRequired,
+    width: React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired,
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
-
+/*
+            <TouchableOpacity
+                style={styles.touchableArea}
+                onPress={_goToLightBox(props.mainNav, props.photo).bind(this)}
+                activeOpacity={75 / 100}>
+                <Image
+                    resizeMode={'cover'}
+                    source={{ uri: props.photo.urls.raw }}
+                    style={{width: props.width, height: props.height, backgroundColor: 'transparent' }}
+                    />
+            </TouchableOpacity>
+*/
 export default Photo;

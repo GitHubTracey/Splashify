@@ -1,11 +1,15 @@
 import React, { Component, PropTypes, } from 'react';
-import { View, } from 'react-native';
+import { View, ListView } from 'react-native';
 import User from './User'
+import { toJson } from 'unsplash-js/native'
+import { unsplash } from '../../config/apikeys.js'
+import Loader from '../../components/Loader'
+import {getFullPhotoData} from '../../lib/unsplashHelpers.js'
 
 class UserContainer extends Component {
 
     static propTypes = {
-        name: React.PropTypes.string.isRequired,
+        username: React.PropTypes.string.isRequired,
         route: PropTypes.object.isRequired,
         navigation: PropTypes.object.isRequired,
         navigator: PropTypes.object.isRequired,
@@ -19,14 +23,58 @@ class UserContainer extends Component {
 
     constructor(props) {
         super(props);
+
+        this.ds =
+            new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+
+        this.state = {
+            dataSource: this.ds,
+            isLoading: true,
+            user: [],
+        };
     }
 
-    render(props) {
-        return (
-            <View>
-                <User name={this.props.name} />
-            </View>
-        );
+    getUserPhotosJson() {
+        console.log('UserContainer,getUserPhotosJson - this.props: ', this.props)
+        unsplash.users.photos(this.props.username, 1, 3, 'latest')
+        .then(toJson)
+        .then(json => {
+            //your code
+            console.log('UserContainer,getUserPhotosJson - json', json)
+           return getFullPhotoData(json)
+        })
+        .then(fullJsonResults => {
+            console.log('UserContainer,getUserPhotosJson - fullJsonResults', fullJsonResults)
+            this.setState({
+                dataSource : this.ds.cloneWithRows(fullJsonResults)
+            })
+        })
+        .catch(err => console.log(`error fetching photos JSON: ${err}`))
+    }
+    componentDidMount() {
+        this.getUserPhotosJson()
+    }
+    componentDidUpdate() {
+        if (this.state.dataSource && this.state.isLoading) {
+            console.log('componentDidUpdate', this.state.dataSource)
+            this.setState({ 
+                isLoading: false, 
+                user: this.state.dataSource._dataBlob.s1[0].user});
+        }
+    }
+
+    render() {
+        if (this.state.isLoading) {
+            return (
+                <Loader />
+            );
+        } else {
+            console.log('************UserContainer**********')
+            console.log(this.state.dataSource._dataBlob.s1)
+            return (
+                <User userPhotoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
+            );
+        }
     }
 }
 

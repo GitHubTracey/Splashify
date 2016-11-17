@@ -1,7 +1,7 @@
 import Router from '../navigation/routes.js'
 
 export const _goToUser = (navigator, username) => () => {
-    navigator.push(Router.getRoute('user', {name: username}));
+    navigator.push(Router.getRoute('user', {username: username}));
 }
 export const _goToLightBox = (navigator, blob) => () => {
     console.log('_goToLightBox, photoBlob: ', blob)

@@ -4,16 +4,10 @@ import {
 } from 'react-native';
 
 export const styles = StyleSheet.create({
-    image: {
-        backgroundColor: 'transparent',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height*0.41,
-        zIndex: 0,
+    container: {
+        flex: 1,
     },
-    userAvatar: {
-        position: 'absolute',
-        bottom: 0,
-        flexDirection: 'row',
+    touchableArea : {
         flex: 1,
     }
 });

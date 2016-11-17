@@ -8,4 +8,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    userAvatar: {
+        position: 'absolute',
+        bottom: 0,
+        flexDirection: 'row',
+        flex: 1,
+    }
 });

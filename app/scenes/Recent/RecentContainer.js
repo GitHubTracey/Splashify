@@ -61,8 +61,8 @@ class RecentContainer extends Component {
                 <Loader />
             );
         } else {
-            console.log('************RecentContainer**********')
-            console.log(this.state.dataSource._dataBlob.s1)
+            // console.log('************RecentContainer**********')
+            // console.log(this.state.dataSource._dataBlob.s1)
             return (
                 <Recent recentPhotoBlob={this.state.dataSource} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
             );
@@ -70,19 +70,6 @@ class RecentContainer extends Component {
     }
 }
 /*
-
 ************  will need to use time ago libray to say things like (1 hr ago... 5 days ago... etc) ***********
-                <ListView
-                    dataSource={this.state.dataSource}
-                    renderRow={(data) =>
-                        <View style={styles.user}>
-                            <Image
-                                source={{ uri: data.avatar }}
-                                style={styles.image}
-                                />
-                            <Text style={styles.text}>{data.first_name} {data.last_name}</Text>
-                        </View>}
-                    renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-                    />
 */
 export default RecentContainer;

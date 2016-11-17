@@ -13,7 +13,7 @@ const UserAvatar = (props) => {
     return (
         <TouchableOpacity
             style={avatarStyles.touchableArea} 
-            onPress={_goToUser(props.nav, props.user.name).bind(this)}
+            onPress={_goToUser(props.nav, props.user.username).bind(this)}
             activeOpacity={75 / 100}>
             <View style={avatarStyles.container} >
                 <View style={avatarStyles.user} >

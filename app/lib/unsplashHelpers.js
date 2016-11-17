@@ -8,6 +8,6 @@ export const getFullPhotoData = (photosJson) => {
             .then(json => {
                 return json;
             })
-            .catch(error => console.log(`Error fetching photo JSON: ${error}`));
+            .catch(error => console.log(`getFullPhotoData: Error fetching photo JSON: ${error}`));
     }));
 }
