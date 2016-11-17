@@ -8,6 +8,30 @@ export const styles = StyleSheet.create({
         flex: 1, 
         backgroundColor: 'black',
     },
+    userContainer: {
+        flex: 0.15, 
+        flexDirection: 'row',
+        backgroundColor: 'black',
+        justifyContent: 'center', 
+        alignItems: 'center',
+    },
+    imageContainer: {
+        flex: 0.7, 
+        backgroundColor: 'black',
+        flexDirection: 'column',
+        justifyContent: 'flex-start', 
+        alignItems: 'flex-start',
+    },
+    actionIconsContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start', 
+        alignItems: 'flex-start',
+    },
+    statsContainer: {
+        flex: 0.15, 
+        backgroundColor: 'black',
+    },
     container: {
         flex: 1, 
         marginTop: 56,
@@ -29,6 +53,9 @@ export const styles = StyleSheet.create({
         flex: 0.2, 
         flexDirection: 'row',
         justifyContent: 'flex-end', 
+    },
+    close: {
+        padding: 10,
     },
 });
 
