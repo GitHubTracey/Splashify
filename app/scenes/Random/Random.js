@@ -12,7 +12,7 @@ const Random = (props) => {
     console.log('Random, props: ', props)
     return (
         <View style={styles.container}>
-            <Photo photo={props.randomPhoto} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
+            <Photo photo={props.randomPhoto} flex={1} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
             <View style={styles.userAvatar}>
                 <UserAvatar user={props.randomPhoto.user} nav={props.nav} />
             </View>
