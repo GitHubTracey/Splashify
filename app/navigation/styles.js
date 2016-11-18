@@ -7,14 +7,14 @@ export const navigationStyles = StyleSheet.create({
     backgroundColor: '#0084FF',
   },
 });
-
+ 
 export const styles = StyleSheet.create({
     header: {
         height: 20
     },
 
     selectedItemStyle: {
-        backgroundColor: 'blue'
+        backgroundColor: '#999999'
     },
 
     titleText: {

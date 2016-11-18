@@ -2,7 +2,7 @@ import {
   createRouter,
 } from '@exponent/ex-navigation';
 
-import NavigationLayout from '../navigation/NavigationLayout'
+import NavigationLayout from './NavigationLayout'
 import About from '../scenes/About'
 import Favourites from '../scenes/Favourites'
 import Random from '../scenes/Random'
