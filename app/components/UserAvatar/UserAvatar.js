@@ -9,7 +9,6 @@ import { avatarStyles } from './styles.js'
 import { _goToUser } from '../../lib/navigationHelpers.js'
 
 const UserAvatar = (props) => {
-    console.log('UserAvatar, props: ', props)
     return (
         <TouchableOpacity
             style={avatarStyles.touchableArea} 

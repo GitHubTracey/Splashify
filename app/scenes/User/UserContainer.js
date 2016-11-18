@@ -39,14 +39,12 @@ class UserContainer extends Component {
         unsplash.users.photos(this.props.username, 1, 4, 'latest')
             .then(toJson)
             .then(json => {
-                //your code
                 return getFullPhotoData(json)
             })
             .then(fullJsonResults => {
                 this.setState({
                     dataSource: this.ds.cloneWithRows(fullJsonResults)
                 })
-                console.log('***** getUserPhotosJson *****', this.state.dataSource)
             })
             .catch(err => console.log(`error fetching photos JSON: ${err}`))
     }
@@ -55,7 +53,6 @@ class UserContainer extends Component {
     }
     componentDidUpdate() {
         if (this.state.dataSource && this.state.isLoading) {
-            console.log('componentDidUpdate', this.state.dataSource)
             this.setState({
                 isLoading: false,
                 user: this.state.dataSource._dataBlob.s1[0].user
@@ -69,8 +66,6 @@ class UserContainer extends Component {
                 <Loader />
             );
         } else {
-            console.log('************UserContainer**********')
-            console.log(this.state.dataSource._dataBlob.s1)
             return (
                 <User userPhotoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
             );

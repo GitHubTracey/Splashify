@@ -14,18 +14,14 @@ export const styles = StyleSheet.create({
     },
 });
 
-const About = (props) => {
+const About = () => {
     return (
         <View style={styles.container}>
             <Image
                 source={require('../../images/red-logo.png')}
                 />
-            <Text onPress={props.goToUser}>Click Me!</Text>
         </View>
     );
-}
-About.propTypes = {
-    goToUser: React.PropTypes.func.isRequired,
 }
 
 export default About;

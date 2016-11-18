@@ -17,7 +17,7 @@ const Recent = (props) => {
                 dataSource={props.recentPhotoBlob}
                 renderRow={(data) =>
                     <View>
-                        <Photo photo={data} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
+                        <Photo photo={data} nav={props.nav} flex={1} mainNav={props.mainNav} height={height} width={width} />
                         <View style={styles.userAvatar}>
                             <UserAvatar user={data.user} nav={props.nav} />
                         </View>

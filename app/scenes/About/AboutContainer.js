@@ -18,22 +18,12 @@ class AboutContainer extends Component {
     }
     constructor(props) {
         super(props)
-        this.state = {
-            name: 'this guy',
-        }
     }
-    componentWillMount() {
-        this._goToUser = _goToUser(this.props.navigator, this.state.name).bind(this)
-    }
-    // _goToUser() {
-    //     console.log(this)
-    //     this.props.navigator.push(Router.getRoute('user', {name: this.state.name}));
-    // }
 
     render() {
         return (
             <View>
-                <About goToUser={this._goToUser} />
+                <About />
             </View>
         );
     }

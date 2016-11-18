@@ -24,16 +24,5 @@ Random.propTypes = {
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
-/*
-        <View>
-            <Image
-                resizeMode={'cover'}
-                source={{ uri: props.randomPhoto.urls.raw }}
-                style={styles.image}
-                />
-            <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} nav={props.nav} />
-            </View>
-        </View>
-*/
+
 export default Random;
