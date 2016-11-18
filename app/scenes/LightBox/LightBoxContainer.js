@@ -1,6 +1,7 @@
 import React, { Component, PropTypes, } from 'react';
 import { View, } from 'react-native';
 import LightBox from './LightBox'
+import { isPhotoFaved, updatePhotoFave } from '../../lib/databaseHelpers.js'
 
 class LightBoxContainer extends Component {
 
@@ -19,12 +20,26 @@ class LightBoxContainer extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            isFaved: false,
+        }
+
+    }
+    componentWillMount() {
+        if (this.state.randomPhoto)
+            this.setState({ isFaved: isPhotoFaved(this.state.randomPhoto.id) })
+    }
+    componentDidUpdate() {
+        if (this.state.randomPhoto) {
+            this.setState({ isFaved: isPhotoFaved(this.state.randomPhoto.id) })
+        }
     }
 
     render() {
         console.log('LightBoxContainer photoBlob: ', this.props.photoBlob)
         return (
-            <LightBox photoBlob={this.props.photoBlob} mainNav={this.props.navigation.getNavigator('mainStack')} />
+            <LightBox photoBlob={this.props.photoBlob} isFaved={this.state.isFaved} mainNav={this.props.navigation.getNavigator('mainStack')} />
         );
     }
 }

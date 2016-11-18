@@ -6,7 +6,7 @@ import { styles, avatarStyles, statStyles } from './styles.js'
 import PhotoStats from '../../components/PhotoStats'
 import Octicons from 'react-native-vector-icons/Octicons'
 import { _goBack } from '../../lib/navigationHelpers.js'
-import { isPhotoFaved, updatePhotoFave } from '../../lib/databaseHelpers.js'
+import { updatePhotoFave } from '../../lib/databaseHelpers.js'
 
 const iconSize = 24;
 
@@ -39,7 +39,8 @@ const LightBox = (props) => {
                 </View>
                 <View style={styles.right}>
                     <Text style={styles.close}
-                        onPress={() => { console.log("Pressed X!") }
+                        onPress={() => {
+                            _goBack(props.mainNav)}
                         }>
                         {renderIcon("x", iconSize)}</Text>
                 </View>
@@ -62,10 +63,10 @@ const LightBox = (props) => {
                                 style={styles.close}
                                 onPress={() => {
                                     console.log("Pressed bookmark!")
-                                    updatePhotoFave(props.photoBlob.id, isPhotoFaved(props.photoBlob.id))
-                                    renderFaveIcon(isPhotoFaved(props.photoBlob.id), "bookmark", iconSize)
+                                    updatePhotoFave(props.photoBlob.id, props.isFaved)
+                                    renderFaveIcon(props.isFaved, "bookmark", iconSize)
                                 } }>
-                                {renderFaveIcon(isPhotoFaved(props.photoBlob.id), "bookmark", iconSize)}</Text>
+                                {renderFaveIcon(props.isFaved, "bookmark", iconSize)}</Text>
                         </View>
                     </View>
                 </Image>
@@ -82,6 +83,14 @@ const LightBox = (props) => {
     )
 }
 /*
+            <View style={styles.statsContainer}>
+                <View style={statStyles.container}>
+                    <Text style={statStyles.statbox}>DOWNLOADS</Text>
+                    <Text style={statStyles.statbox}>LIKES</Text>
+                    <Text style={statStyles.statbox}>{props.photoBlob.downloads} </Text>
+                    <Text style={statStyles.statbox}>{props.photoBlob.likes}</Text>
+                </View>
+            </View>
 
 
                     <Text style={styles.close} onPress={_goBack(props.mainNav).bind(this)} >{renderIcon("x", iconSize)}</Text>
@@ -129,6 +138,7 @@ const LightBox = (props) => {
                 */
 LightBox.propTypes = {
     photoBlob: React.PropTypes.object.isRequired,
+    isFaved: React.PropTypes.bool.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
 
