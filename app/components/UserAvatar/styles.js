@@ -7,7 +7,6 @@ export const avatarStyles = StyleSheet.create({
         flex: 1, 
         flexDirection: 'row',
         backgroundColor: 'white',
-        opacity: 0.75,
         justifyContent: 'flex-start', 
         alignItems: 'center',
     },

@@ -14,7 +14,7 @@ const Random = (props) => {
         <View style={styles.container}>
             <Photo photo={props.randomPhoto} flex={1} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
             <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} nav={props.nav} />
+                <UserAvatar user={props.randomPhoto.user} opacity={0.75} nav={props.nav} />
             </View>
         </View>
     )

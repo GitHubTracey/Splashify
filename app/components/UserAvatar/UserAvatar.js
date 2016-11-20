@@ -14,7 +14,7 @@ const UserAvatar = (props) => {
             style={avatarStyles.touchableArea} 
             onPress={_goToUser(props.nav, props.user.username).bind(this)}
             activeOpacity={75 / 100}>
-            <View style={avatarStyles.container} >
+            <View style={[avatarStyles.container, {opacity: props.opacity} ]} >
                 <View style={avatarStyles.user} >
                     <Image
                         source={{ uri: props.user.profile_image.large }}
@@ -31,6 +31,7 @@ const UserAvatar = (props) => {
 
 UserAvatar.propTypes = {
     user: React.PropTypes.object.isRequired,
+    opacity: React.PropTypes.number.isRequired,
     nav: React.PropTypes.object.isRequired,
 }
 export default UserAvatar;
