@@ -84,22 +84,23 @@ class FavesContainer extends Component {
     }
 
     render() {
+        console.log('faves container: ', this.state.dataSource)
         if (this.state.isLoading) {
             return (
                 <Loader />
             );
         } else {
-            if( this.state.dataSource.length > 0 ) {
+           // if( this.state.dataSource.length > 0 ) {
                 return (
                     <Faves photoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
                 );
-            } else {
-                return (
-                    <View style={styles.container}>
-                        <Text style={styles.text}>You haven't faved any photos yet.</Text>
-                    </View>
-                )
-            }
+            // } else {
+            //     return (
+            //         <View style={styles.container}>
+            //             <Text style={styles.text}>You haven't faved any photos yet.</Text>
+            //         </View>
+            //     )
+            // }
         }
     }
 }
