@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    View, Image, Text, TouchableOpacity
+    View, Image, Text, TouchableOpacity, CameraRoll, Platform,
 } from 'react-native';
 import { styles, avatarStyles, statStyles } from './styles.js'
 import Octicons from 'react-native-vector-icons/Octicons'
@@ -52,12 +52,19 @@ const LightBox = (props) => {
                     style={styles.image}
                     >
                     <View style={styles.actionIconsContainer}>
+                        {Platform.OS === 'ios' &&
                         <View style={styles.left}>
-                            <Text
+                            <TouchableOpacity 
                                 style={styles.close}
-                                onPress={() => { console.log("Pressed cloud-download!") } }>
-                                {renderIcon("cloud-download", iconSize)}</Text>
+                                onPress={() => {
+                                    console.log("saving photo to camera roll", props.photoBlob.urls.raw)
+                                    CameraRoll.saveToCameraRoll(props.photoBlob.urls.raw, "photo")}
+                                }
+                                activeOpacity={75 / 100}>
+                            {renderIcon("cloud-download", iconSize)}
+                            </TouchableOpacity>
                         </View>
+                    }
                         <View style={styles.right}>
                             <TouchableOpacity
                                 style={styles.close}
