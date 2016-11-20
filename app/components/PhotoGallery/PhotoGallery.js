@@ -14,6 +14,7 @@ class PhotoGallery extends Component {
                 <ListView
                     dataSource={this.props.photoBlob}
                     contentContainerStyle={styles.photo}
+                    enableEmptySections={true}
                     renderRow={(data) =>
                         <View style={styles.photoPadding}>
                             <Photo photo={data} nav={this.props.nav} mainNav={this.props.mainNav} flex={flex} height={width} width={width} />
