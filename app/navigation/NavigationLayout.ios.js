@@ -32,6 +32,7 @@ class NavigationLayout extends Component {
   static route = {
     navigationBar: {
       visible: false,
+      backgroundColor: 'white',
       // backgroundColor: 'rgba(255,255,255,0.5)',
       // tintColor: '#222',
       // translucent: true,

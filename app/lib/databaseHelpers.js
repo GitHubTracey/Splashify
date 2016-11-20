@@ -6,9 +6,9 @@ import realm from '../config/models.js';
 */
 export const isPhotoFaved = (photoId) => {
     console.log('check if isPhotoFaved: ', photoId)
-    let favedPhoto = realm.objects('Fave').filtered('id==$0', photoId)
-    console.log(favedPhoto)
-    console.log('length > 0?', favedPhoto.length > 0)
+    let favedPhoto = realm.objects('Faves').filtered('id==$0', photoId)
+    // console.log(favedPhoto)
+    // console.log('length > 0?', favedPhoto.length > 0)
     return favedPhoto.length > 0 ? true : false;
 }
 /*
@@ -20,7 +20,7 @@ export const updatePhotoFave = (photoId, isPhotoFaved) => {
     console.log('updatePhotoFave: ', photoId, ' isPhotoFaved: ', isPhotoFaved)
     if (isPhotoFaved) {
         console.log('photo is faved')
-        let photo = realm.objects('Fave').filtered('id==$0', photoId)
+        let photo = realm.objects('Faves').filtered('id==$0', photoId)
 
         realm.write(() => {
             realm.delete(photo)
@@ -28,7 +28,15 @@ export const updatePhotoFave = (photoId, isPhotoFaved) => {
     } else {
         console.log('photo not yet faved')
         realm.write(() => {
-            realm.create('Fave', { id: photoId, faved_on: new Date() })
+            realm.create('Faves', { id: photoId, faved_on: new Date() })
         })
     }
+}
+/*
+    Get a list of photos that have been faved
+*/
+export const getFavedPhotos = () => {
+    console.log('getFavedPhotos ')
+    //sort in "reverse" - newest at the top
+    return realm.objects('Faves').sorted('faved_on', true)
 }

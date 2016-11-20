@@ -1,7 +1,7 @@
 import React from 'react';
-import { ListView, View, Text, Dimensions, Image } from 'react-native';
+import { ScrollView, View, Text, Image } from 'react-native';
 import { styles } from './styles.js'
-import Photo from '../../components/Photo'
+import PhotoGallery from '../../components/PhotoGallery'
 import Octicons from 'react-native-vector-icons/Octicons'
 const iconSize = 12;
 
@@ -11,44 +11,40 @@ const renderIcon = (iconName, size) => {
     )
 }
 
-const width = (Dimensions.get('window').width - 6) / 3;
-const User = (props) => {
-    console.log('User')
+const renderLocation = (location) => {
     return (
-        <View style={styles.container}>
-            <Image
-                source={{ uri: props.user.profile_image.large }}
-                resizeMode={'contain'}
-                style={styles.image}
-                />
-            <Text style={styles.name}>{props.user.name}</Text>
-            <Text style={styles.locationContact}>{renderIcon("location", iconSize)} {props.user.location}</Text>
-            <Text style={styles.locationContact}>{renderIcon("globe", iconSize)} {props.user.portfolio_url}</Text>
-            <Text style={styles.bio}>{props.user.bio}</Text>
-            <View style={styles.row}>
-                <ListView
-                    dataSource={props.userPhotoBlob}
-                    renderRow={(data) =>
-                        <View style={styles.photoPadding}>
-                            <Photo photo={data} nav={props.nav} mainNav={props.mainNav} height={width} width={width} />
-                        </View>
-                    }
+        location ? <Text style={styles.locationContact}>{renderIcon("location", iconSize)} {location}</Text>
+            : <Text></Text>
+    )
+}
+
+const renderPortfolioURL = (url) => {
+    return (
+        location ? <Text style={styles.locationContact}>{renderIcon("globe", iconSize)} {url}</Text>
+            : <Text></Text>
+    )
+}
+
+const User = (props) => {
+        console.log('User', props)
+    return (
+        <ScrollView>
+            <View style={styles.container}>
+                <Image
+                    source={{ uri: props.user.profile_image.large }}
+                    resizeMode={'contain'}
+                    style={styles.image}
                     />
+                <Text style={styles.name}>{props.user.name}</Text>
+                {renderLocation(props.user.location)}
+                {renderPortfolioURL(props.user.portfolio_url)}
+                <Text style={styles.bio}>{props.user.bio}</Text>
+                <PhotoGallery photoBlob={props.userPhotoBlob} nav={props.nav} mainNav={props.mainNav} />
             </View>
-        </View>
+        </ScrollView>
     );
 }
-/*
-            <ListView
-                style={styles.row}
-                dataSource={props.userPhotoBlob}
-                renderRow={(data) =>
-                    <View style={styles.photoPadding}>
-                        <Photo photo={data} nav={props.nav} mainNav={props.mainNav} height={width} width={width} />
-                    </View>
-                }
-                />
-*/
+
 User.propTypes = {
     user: React.PropTypes.object.isRequired,
     userPhotoBlob: React.PropTypes.object.isRequired,

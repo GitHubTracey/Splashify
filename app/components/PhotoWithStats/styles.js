@@ -14,6 +14,24 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         flex: 1,
     },
+    stats: {
+        flexDirection: 'row',
+        flex: 1,
+        backgroundColor: 'white',
+        zIndex: 2
+    },
+    left: {
+        flex: 0.6,
+        marginLeft: 10,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    },
+    right: {
+        flex: 0.4,
+        marginRight: 10,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+    },
     separator: {
         flex: 1,
         marginTop: 2,

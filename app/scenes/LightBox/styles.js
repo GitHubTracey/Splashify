@@ -30,7 +30,10 @@ export const styles = StyleSheet.create({
     },
     statsContainer: {
         flex: 0.15, 
+        flexDirection: 'row',
         backgroundColor: 'black',
+        justifyContent: 'center', 
+        alignItems: 'center',
     },
     container: {
         flex: 1, 
@@ -92,14 +95,17 @@ export const statStyles = StyleSheet.create({
     },
     container: {
         flex: 1,
+        height: 56,
         flexDirection: 'row',
         flexWrap: 'wrap',
         backgroundColor: 'black',
+        justifyContent: 'flex-start', 
+        alignItems: 'center',
     },
     statbox: {
         width: Dimensions.get('window').width / 2,
-        height: 56,
         fontSize: 24,
+        height: 28,
     },
     statText: {
         color: '#999999',

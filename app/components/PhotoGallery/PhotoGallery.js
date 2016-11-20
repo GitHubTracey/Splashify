@@ -1,52 +1,46 @@
 import React, { Component, PropTypes, } from 'react';
-import { View, Text, ListView, ScrollView, } from 'react-native';
+import { View, Text, ListView, ScrollView, Dimensions, } from 'react-native';
 import Photo from '../Photo'
+import { styles } from './styles.js'
+
+const width = (Dimensions.get('window').width - 6) / 3,
+    flex = 1 / 3;
 
 class PhotoGallery extends Component {
-    constructor(props) {
-        super(props);
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        this.state = {
-            dataSource: ds.cloneWithRows(['row 1', 'row 2']),
-        };
-    }
-
-    render(props) {
+    render() {
+        console.log('PhotoGallery', this.props)
         return (
-            <View>
-                <Text>Print out the Props</Text>
+            <View style={styles.row}>
                 <ListView
-                    dataSource={props.photoBlob}
+                    dataSource={this.props.photoBlob}
+                    contentContainerStyle={styles.photo}
+                    enableEmptySections={true}
                     renderRow={(data) =>
-                        <Text>{data.user.name}</Text>}
-                    renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+                        <View style={styles.photoPadding}>
+                            <Photo photo={data} nav={this.props.nav} mainNav={this.props.mainNav} flex={flex} height={width} width={width} />
+                        </View>
+                    }
                     />
             </View>
         );
     }
 }
 PhotoGallery.propTypes = {
-    photoBlob: React.PropTypes.object.isRequired
+    photoBlob: React.PropTypes.object.isRequired,
+    nav: React.PropTypes.object.isRequired,
+    mainNav: React.PropTypes.object.isRequired,
 }
 /*
-            <ListView
-                dataSource={props.photoList}
-                renderRow={(data) =>
-                    <Photo photo={data} />}
-                renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-                />
+            <View style={styles.row}>
+                <ListView
+                    dataSource={props.userPhotoBlob}
+                    contentContainerStyle={styles.photo}
+                    renderRow={(data) =>
+                        <View style={styles.photoPadding}>
+                            <Photo photo={data} nav={props.nav} flex={flex} mainNav={props.mainNav} height={width} width={width} />
+                        </View>
+                    }
+                    />
+            </View>
  */
 export default PhotoGallery;
-
-                // <ListView
-                //     dataSource={this.state.dataSource}
-                //     renderRow={(data) =>
-                //         <View style={styles.user}>
-                //             <Image
-                //                 source={{ uri: data.avatar }}
-                //                 style={styles.image}
-                //                 />
-                //             <Text style={styles.text}>{data.first_name} {data.last_name}</Text>
-                //         </View>}
-                //     renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-                //     />

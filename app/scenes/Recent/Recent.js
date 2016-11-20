@@ -1,29 +1,16 @@
 import React from 'react';
 import { View, Text, ListView, Dimensions} from 'react-native';
 import { styles } from './styles.js'
-// import PhotoGallery from '../../components/PhotoGallery'
-import Photo from '../../components/Photo'
-import UserAvatar from '../../components/UserAvatar'
-
-const height = Dimensions.get('window').height*0.41,
-    width = Dimensions.get('window').width;
+import PhotoWithStats from '../../components/PhotoWithStats'
 
 const Recent = (props) => {
-    console.log('Recent')
-    console.log(`height: ${height}, width: ${width}`)
     return (
         <View style={styles.container}>
             <ListView
                 dataSource={props.recentPhotoBlob}
                 renderRow={(data) =>
-                    <View>
-                        <Photo photo={data} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
-                        <View style={styles.userAvatar}>
-                            <UserAvatar user={data.user} nav={props.nav} />
-                        </View>
-                    </View>
+                    <PhotoWithStats photo={data} photoFlex={1} user={data.user} avatarOpacity={1} nav={props.nav} mainNav={props.mainNav} />
                 }
-                renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
                 />
         </View>
     );

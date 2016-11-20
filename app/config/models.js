@@ -1,12 +1,5 @@
 import Realm from 'realm';
 
-const Fave = {
-    name: 'Fave',
-    primaryKey: 'id',
-    properties: {
-        id: 'string',
-        faved_on: 'date',
-    }
-};
+import Faves from './RealmObjects/Faves.js'
 
-export default new Realm({ schema: [Fave] });
+export default new Realm({ schema: [Faves] });

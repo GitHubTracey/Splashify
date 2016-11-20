@@ -4,7 +4,8 @@ import User from './User'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
 import Loader from '../../components/Loader'
-import {getFullPhotoData} from '../../lib/unsplashHelpers.js'
+import { getFullPhotoData } from '../../lib/unsplashHelpers.js'
+
 
 class UserContainer extends Component {
 
@@ -14,7 +15,7 @@ class UserContainer extends Component {
         navigation: PropTypes.object.isRequired,
         navigator: PropTypes.object.isRequired,
     };
-
+    
     static route = {
         navigationBar: {
             title: 'User',
@@ -35,28 +36,27 @@ class UserContainer extends Component {
     }
 
     getUserPhotosJson() {
-        unsplash.users.photos(this.props.username, 1, 3, 'latest')
-        .then(toJson)
-        .then(json => {
-            //your code
-           return getFullPhotoData(json)
-        })
-        .then(fullJsonResults => {
-            this.setState({
-                dataSource : this.ds.cloneWithRows(fullJsonResults)
+        unsplash.users.photos(this.props.username, 1, 4, 'latest')
+            .then(toJson)
+            .then(json => {
+                return getFullPhotoData(json)
             })
-        })
-        .catch(err => console.log(`error fetching photos JSON: ${err}`))
+            .then(fullJsonResults => {
+                this.setState({
+                    dataSource: this.ds.cloneWithRows(fullJsonResults)
+                })
+            })
+            .catch(err => console.log(`error fetching photos JSON: ${err}`))
     }
     componentDidMount() {
         this.getUserPhotosJson()
     }
     componentDidUpdate() {
         if (this.state.dataSource && this.state.isLoading) {
-            console.log('componentDidUpdate', this.state.dataSource)
-            this.setState({ 
-                isLoading: false, 
-                user: this.state.dataSource._dataBlob.s1[0].user});
+            this.setState({
+                isLoading: false,
+                user: this.state.dataSource._dataBlob.s1[0].user
+            });
         }
     }
 
@@ -66,8 +66,6 @@ class UserContainer extends Component {
                 <Loader />
             );
         } else {
-            console.log('************UserContainer**********')
-            console.log(this.state.dataSource._dataBlob.s1)
             return (
                 <User userPhotoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
             );

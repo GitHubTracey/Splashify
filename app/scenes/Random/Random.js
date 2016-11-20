@@ -12,9 +12,9 @@ const Random = (props) => {
     console.log('Random, props: ', props)
     return (
         <View style={styles.container}>
-            <Photo photo={props.randomPhoto} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
+            <Photo photo={props.randomPhoto} flex={1} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
             <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} nav={props.nav} />
+                <UserAvatar user={props.randomPhoto.user} opacity={0.75} nav={props.nav} />
             </View>
         </View>
     )
@@ -24,16 +24,5 @@ Random.propTypes = {
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
-/*
-        <View>
-            <Image
-                resizeMode={'cover'}
-                source={{ uri: props.randomPhoto.urls.raw }}
-                style={styles.image}
-                />
-            <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} nav={props.nav} />
-            </View>
-        </View>
-*/
+
 export default Random;

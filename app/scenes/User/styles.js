@@ -12,9 +12,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
+        alignItems: 'flex-start',
+
     },
     image: {
-        marginTop: 40,
+        marginTop: 10,
         width: 100,
         height: 100,
         borderRadius: 50,
@@ -41,9 +43,13 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
     },
-    photoPadding: {
-        padding: 1,
+    photo: {
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         flexDirection: 'row',
         flexWrap: 'wrap',
+    },
+    photoPadding: {
+        padding: 1,
     },
 });
