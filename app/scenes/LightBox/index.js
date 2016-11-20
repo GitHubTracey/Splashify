@@ -1,5 +1,5 @@
-import LightBoxContainer from './LightBoxContainer';
-import LightBox from './LightBox';
+import LightboxContainer from './LightboxContainer';
+import Lightbox from './Lightbox';
 
-export { LightBox };
-export default LightBoxContainer;
+export { Lightbox };
+export default LightboxContainer;

@@ -3,8 +3,8 @@ import { ScrollView, View, Text, Image } from 'react-native';
 import { styles } from './styles.js'
 import PhotoGallery from '../../components/PhotoGallery'
 
-const Favourites = (props) => {
-        console.log('Favourites', props)
+const Faves = (props) => {
+        console.log('Faves', props)
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -14,10 +14,10 @@ const Favourites = (props) => {
     );
 }
 
-Favourites.propTypes = {
+Faves.propTypes = {
     photoBlob: React.PropTypes.object.isRequired,
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
 
-export default Favourites;
+export default Faves;

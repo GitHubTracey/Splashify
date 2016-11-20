@@ -21,8 +21,8 @@ const renderIcon = (iconName, size) => {
     )
 }
 
-const LightBox = (props) => {
-    console.log('LightBox photoBlob: ', props.photoBlob)
+const Lightbox = (props) => {
+    console.log('Lightbox photoBlob: ', props.photoBlob)
     return (
         <View style={styles.outerContainer}>
             <View style={styles.userContainer}>
@@ -91,13 +91,13 @@ const LightBox = (props) => {
     )
 }
 
-LightBox.propTypes = {
+Lightbox.propTypes = {
     photoBlob: React.PropTypes.object.isRequired,
     updateFaved: React.PropTypes.func.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
 
-export default LightBox;
+export default Lightbox;
 /*
 
                         <View style={styles.right}>

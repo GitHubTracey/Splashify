@@ -1,9 +1,9 @@
 import React, { Component, PropTypes, } from 'react'
 import { View, } from 'react-native'
-import LightBox from './LightBox'
+import Lightbox from './Lightbox'
 import { isPhotoFaved, updatePhotoFave, } from '../../lib/databaseHelpers.js'
 
-class LightBoxContainer extends Component {
+class LightboxContainer extends Component {
 
     static propTypes = {
         photoBlob: React.PropTypes.object.isRequired,
@@ -46,11 +46,11 @@ class LightBoxContainer extends Component {
     // }
 
     render() {
-        console.log('LightBoxContainer photoBlob: ', this.props.photoBlob)
+        console.log('LightboxContainer photoBlob: ', this.props.photoBlob)
         return (
-            <LightBox photoBlob={this.props.photoBlob} updateFaved={this.updateFaved.bind(this)} isFaved={this.state.isFaved} mainNav={this.props.navigation.getNavigator('mainStack')} />
+            <Lightbox photoBlob={this.props.photoBlob} updateFaved={this.updateFaved.bind(this)} isFaved={this.state.isFaved} mainNav={this.props.navigation.getNavigator('mainStack')} />
         );
     }
 }
 
-export default LightBoxContainer;
+export default LightboxContainer;

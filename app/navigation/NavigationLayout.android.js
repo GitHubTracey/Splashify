@@ -47,13 +47,13 @@ class NavigationLayout extends Component {
                 </DrawerNavigationItem>
 
                 <DrawerNavigationItem
-                    id='favourites'
+                    id='faves'
                     selectedStyle={styles.selectedItemStyle}
                     renderTitle={isSelected => this._renderTitle('Faves', isSelected, "star", iconSize)}
                     >
                     <StackNavigation
-                        id='favourites'
-                        initialRoute={Router.getRoute('favourites')}
+                        id='Faves'
+                        initialRoute={Router.getRoute('faves')}
                         />
                 </DrawerNavigationItem>
 
@@ -123,13 +123,13 @@ export default NavigationLayout;
     /*
     
                     <DrawerNavigationItem
-                        id='favourites'
+                        id='Faves'
                         selectedStyle={styles.selectedItemStyle}
                         renderTitle={isSelected => this._renderTitle('Faves', isSelected, "star", iconSize)}
                         >
                         <StackNavigation
-                            id='favourites'
-                            initialRoute={Router.getRoute('favourites')}
+                            id='Faves'
+                            initialRoute={Router.getRoute('Faves')}
                             />
                     </DrawerNavigationItem>
     

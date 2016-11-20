@@ -57,13 +57,13 @@ class NavigationLayout extends Component {
         </TabItem>
 
         <TabItem
-          id="favourites"
+          id="faves"
           title="Faves"
           renderIcon={(isSelected) => renderIcon(isSelected, "star", iconSize)}
           >
           <StackNavigation
-            id="favourites"
-            initialRoute={Router.getRoute('favourites')}
+            id="faves"
+            initialRoute={Router.getRoute('faves')}
             />
         </TabItem>
 

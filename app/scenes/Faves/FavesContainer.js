@@ -1,15 +1,15 @@
 import React, { Component, PropTypes, } from 'react';
 import { View, ListView, Text, } from 'react-native';
-import Favourites from './Favourites'
+import Faves from './Faves'
 import Loader from '../../components/Loader'
 import { getFavedPhotos } from '../../lib/databaseHelpers.js'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
 import { getFullPhotoData } from '../../lib/unsplashHelpers.js'
-import realm, {Faves} from '../../config/models.js'
+import realm from '../../config/models.js'
 import {styles} from './styles.js'
 
-class FavouritesContainer extends Component {
+class FavesContainer extends Component {
 
     static propTypes = {
         route: PropTypes.object.isRequired,
@@ -91,7 +91,7 @@ class FavouritesContainer extends Component {
         } else {
             if( this.state.dataSource.length > 0 ) {
                 return (
-                    <Favourites photoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
+                    <Faves photoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
                 );
             } else {
                 return (
@@ -110,11 +110,11 @@ for constructor of Faves:
 
         // console.log('realm.objects(Fave)', realm.objects('Fave'))
         // Observe Collection Notifications
-        // realm.objects('Fave').addListener((favourites, changes) => {
-        //     console.log('change!', favourites, changes)
+        // realm.objects('Fave').addListener((Faves, changes) => {
+        //     console.log('change!', Faves, changes)
         //     // Update UI in response to inserted objects
         //     // changes.insertions.forEach((index) => {
-        //     //     let insertedFavourite = favourites[index];
+        //     //     let insertedFavourite = Faves[index];
         //     //     return true
         //     // });
 
@@ -127,4 +127,4 @@ for constructor of Faves:
         //     // });
         // });
 */
-export default FavouritesContainer;
+export default FavesContainer;
