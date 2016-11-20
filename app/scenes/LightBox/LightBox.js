@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-    View, Image, Text
+    View, Image, Text, TouchableOpacity
 } from 'react-native';
 import { styles, avatarStyles, statStyles } from './styles.js'
-import PhotoStats from '../../components/PhotoStats'
 import Octicons from 'react-native-vector-icons/Octicons'
 import { _goBack } from '../../lib/navigationHelpers.js'
-import { updatePhotoFave } from '../../lib/databaseHelpers.js'
+import { isPhotoFaved, updatePhotoFave,  } from '../../lib/databaseHelpers.js'
 
 const iconSize = 24;
 
@@ -40,7 +39,8 @@ const LightBox = (props) => {
                 <View style={styles.right}>
                     <Text style={styles.close}
                         onPress={() => {
-                            _goBack(props.mainNav)}
+                            _goBack(props.mainNav)
+                        }
                         }>
                         {renderIcon("x", iconSize)}</Text>
                 </View>
@@ -59,14 +59,15 @@ const LightBox = (props) => {
                                 {renderIcon("cloud-download", iconSize)}</Text>
                         </View>
                         <View style={styles.right}>
-                            <Text
+                            <TouchableOpacity
                                 style={styles.close}
                                 onPress={() => {
                                     console.log("Pressed bookmark!")
-                                    updatePhotoFave(props.photoBlob.id, props.isFaved)
-                                    renderFaveIcon(props.isFaved, "bookmark", iconSize)
-                                } }>
-                                {renderFaveIcon(props.isFaved, "bookmark", iconSize)}</Text>
+                                    props.updateFaved()
+                                } }
+                                activeOpacity={75 / 100}>
+                                {renderFaveIcon(props.isFaved, "bookmark", iconSize)}
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </Image>
@@ -82,7 +83,42 @@ const LightBox = (props) => {
         </View>
     )
 }
+
+LightBox.propTypes = {
+    photoBlob: React.PropTypes.object.isRequired,
+    updateFaved: React.PropTypes.func.isRequired,
+    mainNav: React.PropTypes.object.isRequired,
+}
+
+export default LightBox;
 /*
+
+                        <View style={styles.right}>
+                            <TouchableOpacity
+                                style={styles.close}
+                                onPress={() => {
+                                    console.log("Pressed bookmark!")
+                                    updatePhotoFave(props.photoBlob.id, isPhotoFaved(props.photoBlob.id))
+                                    renderFaveIcon(isPhotoFaved(props.photoBlob.id), "bookmark", iconSize)
+                                } }
+                                activeOpacity={75 / 100}>
+                                {renderFaveIcon(props.isFaved, "bookmark", iconSize)}
+                            </TouchableOpacity>
+                        </View>
+
+                            <Text
+                                style={styles.close}
+                                onPress={() => {
+                                    console.log("Pressed bookmark!")
+                                    updatePhotoFave(props.photoBlob.id, props.isFaved)
+                                    renderFaveIcon(props.isFaved, "bookmark", iconSize)
+                                } }>
+                                {renderFaveIcon(props.isFaved, "bookmark", iconSize)}
+                            </Text>
+
+
+
+
             <View style={styles.statsContainer}>
                 <View style={statStyles.container}>
                     <Text style={statStyles.statbox}>DOWNLOADS</Text>
@@ -136,10 +172,3 @@ const LightBox = (props) => {
             </View>
         </View>
                 */
-LightBox.propTypes = {
-    photoBlob: React.PropTypes.object.isRequired,
-    isFaved: React.PropTypes.bool.isRequired,
-    mainNav: React.PropTypes.object.isRequired,
-}
-
-export default LightBox;
