@@ -1,12 +1,23 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, View, Text, Image } from 'react-native';
+import { styles } from './styles.js'
+import PhotoGallery from '../../components/PhotoGallery'
 
-const Favourites = () => {
+const Favourites = (props) => {
+        console.log('Favourites', props)
     return (
-        <View>
-            <Text>I like green eggs and Ham. Favourites!</Text>
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <PhotoGallery photoBlob={props.photoBlob} nav={props.nav} mainNav={props.mainNav} />
+            </View>
+        </ScrollView>
     );
+}
+
+Favourites.propTypes = {
+    photoBlob: React.PropTypes.object.isRequired,
+    nav: React.PropTypes.object.isRequired,
+    mainNav: React.PropTypes.object.isRequired,
 }
 
 export default Favourites;

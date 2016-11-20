@@ -32,3 +32,11 @@ export const updatePhotoFave = (photoId, isPhotoFaved) => {
         })
     }
 }
+/*
+    Get a list of photos that have been faved
+*/
+export const getFavedPhotos = () => {
+    console.log('getFavedPhotos ')
+    //sort in "reverse" - newest at the top
+    return realm.objects('Fave').sorted('faved_on', true)
+}
