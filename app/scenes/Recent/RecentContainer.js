@@ -1,5 +1,5 @@
-import React, { Component, PropTypes, } from 'react';
-import { ListView, } from 'react-native';
+import React, { Component, PropTypes, } from 'react'
+import { ListView, } from 'react-native'
 import Recent from './Recent'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
@@ -13,7 +13,7 @@ class RecentContainer extends Component {
         route: PropTypes.object.isRequired,
         navigation: PropTypes.object.isRequired,
         navigator: PropTypes.object.isRequired,
-    };
+    }
 
     static route = {
         navigationBar: {
@@ -45,7 +45,7 @@ class RecentContainer extends Component {
                 dataSource : this.ds.cloneWithRows(fullJsonResults)
             })
         })
-        .catch(err => console.log(`error fetching photos JSON: ${err}`))
+        .catch(err => alert(`error fetching photos JSON: ${err}`))
     }
     componentDidMount() {
         this.getRecentPhotosJson()
@@ -59,17 +59,17 @@ class RecentContainer extends Component {
         if (this.state.isLoading) {
             return (
                 <Loader />
-            );
+            )
         } else {
             // console.log('************RecentContainer**********')
             // console.log(this.state.dataSource._dataBlob.s1)
             return (
                 <Recent recentPhotoBlob={this.state.dataSource} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
-            );
+            )
         }
     }
 }
 /*
 ************  will need to use time ago libray to say things like (1 hr ago... 5 days ago... etc) ***********
 */
-export default RecentContainer;
+export default RecentContainer

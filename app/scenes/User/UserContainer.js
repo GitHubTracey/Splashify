@@ -1,5 +1,5 @@
-import React, { Component, PropTypes, } from 'react';
-import { View, ListView } from 'react-native';
+import React, { Component, PropTypes, } from 'react'
+import { ListView } from 'react-native'
 import User from './User'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
@@ -32,7 +32,7 @@ class UserContainer extends Component {
             dataSource: this.ds,
             isLoading: true,
             user: [],
-        };
+        }
     }
 
     getUserPhotosJson() {
@@ -46,7 +46,7 @@ class UserContainer extends Component {
                     dataSource: this.ds.cloneWithRows(fullJsonResults)
                 })
             })
-            .catch(err => console.log(`error fetching photos JSON: ${err}`))
+            .catch(err => alert(`error fetching photos JSON: ${err}`))
     }
     componentDidMount() {
         this.getUserPhotosJson()
@@ -56,7 +56,7 @@ class UserContainer extends Component {
             this.setState({
                 isLoading: false,
                 user: this.state.dataSource._dataBlob.s1[0].user
-            });
+            })
         }
     }
 
@@ -64,11 +64,11 @@ class UserContainer extends Component {
         if (this.state.isLoading) {
             return (
                 <Loader />
-            );
+            )
         } else {
             return (
                 <User userPhotoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
-            );
+            )
         }
     }
 }

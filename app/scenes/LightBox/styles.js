@@ -6,39 +6,40 @@ import {
 export const styles = StyleSheet.create({
     outerContainer: {
         flex: 1, 
+        flexDirection: 'column',
         backgroundColor: 'black',
     },
     userContainer: {
         flex: 0.15, 
         flexDirection: 'row',
-        backgroundColor: 'black',
+        justifyContent: 'center', 
+        alignItems: 'center',
+    },
+    imagePositionContainer: {
+        flex: 0.7, 
+        flexDirection: 'column',
         justifyContent: 'center', 
         alignItems: 'center',
     },
     imageContainer: {
-        flex: 0.7, 
-        backgroundColor: 'black',
-        flexDirection: 'column',
         justifyContent: 'flex-start', 
-        alignItems: 'flex-start',
+        alignItems: 'center',
     },
     actionIconsContainer: {
+        position: 'absolute',
+        top: 0,
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-start', 
-        alignItems: 'flex-start',
     },
     statsContainer: {
+        position: 'absolute',
+        bottom: 0,
         flex: 0.15, 
         flexDirection: 'row',
-        backgroundColor: 'black',
-        justifyContent: 'center', 
-        alignItems: 'center',
     },
     container: {
         flex: 1, 
         marginTop: 56,
-        backgroundColor: 'black',
         justifyContent: 'center', 
         alignItems: 'center',
     },
@@ -48,12 +49,12 @@ export const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
     },
     left: {
-        flex: 0.8, 
+        flex: 0.9, 
         flexDirection: 'row',
         justifyContent: 'flex-start', 
     },
     right: {
-        flex: 0.2, 
+        flex: 0.1, 
         flexDirection: 'row',
         justifyContent: 'flex-end', 
     },
@@ -66,7 +67,6 @@ export const avatarStyles = StyleSheet.create({
     container: {
         flex: 1, 
         flexDirection: 'row',
-        backgroundColor: 'black',
         justifyContent: 'flex-start', 
         alignItems: 'center',
     },
@@ -89,25 +89,24 @@ export const avatarStyles = StyleSheet.create({
 });
 
 export const statStyles = StyleSheet.create({
-    outerContainer: {
-        flex: 1,
-        height: 56,
-    },
     container: {
         flex: 1,
         height: 56,
+    },
+    row: {
+        flex: 1,
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        backgroundColor: 'black',
-        justifyContent: 'flex-start', 
-        alignItems: 'center',
+    },
+    statboxHeader: {
+        flex: 1,
+        width: Dimensions.get('window').width / 2,
+        fontSize: 12,
+        color: '#999999',
     },
     statbox: {
+        flex: 1,
         width: Dimensions.get('window').width / 2,
         fontSize: 24,
-        height: 28,
-    },
-    statText: {
-        color: '#999999',
+        color: 'white',
     },
 });

@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { styles } from './styles.js'
 
+// displays an animated ActivityIndicator when items are loading
 const Loader = () => {
     return (
         <View style={styles.container}>

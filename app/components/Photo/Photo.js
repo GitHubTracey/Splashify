@@ -2,18 +2,17 @@ import React from 'react';
 import {
     View, Image, TouchableOpacity
 } from 'react-native';
-import { styles } from './styles.js'
-import { _goToLightBox } from '../../lib/navigationHelpers.js'
+import { _goToLightbox } from '../../lib/navigationHelpers.js'
 
 const Photo = (props) => {
-        console.log('Photo  props.photo: ',  props.photo)
+        //console.log('Photo  props.photo: ',  props.photo)
     return (
         <View>
             <TouchableOpacity
-                onPress={_goToLightBox(props.mainNav, props.photo, props.photo.user).bind(this)}
+                onPress={_goToLightbox(props.mainNav, props.photo, props.photo.user).bind(this)}
                 activeOpacity={75 / 100}>
                 <Image
-                    resizeMode={'cover'}
+                    resizeMode={'contain'}
                     source={{ uri: props.photo.urls.raw }}
                     style={{width: props.width, height: props.height, flex: props.flex, backgroundColor: 'transparent' }}
                     />
@@ -29,16 +28,5 @@ Photo.propTypes = {
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
-/*
-            <TouchableOpacity
-                style={styles.touchableArea}
-                onPress={_goToLightBox(props.mainNav, props.photo).bind(this)}
-                activeOpacity={75 / 100}>
-                <Image
-                    resizeMode={'cover'}
-                    source={{ uri: props.photo.urls.raw }}
-                    style={{width: props.width, height: props.height, backgroundColor: 'transparent' }}
-                    />
-            </TouchableOpacity>
-*/
+
 export default Photo;

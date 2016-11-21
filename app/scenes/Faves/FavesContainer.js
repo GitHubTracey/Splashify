@@ -1,15 +1,12 @@
-import React, { Component, PropTypes, } from 'react';
-import { View, ListView, Text, } from 'react-native';
-import Favourites from './Favourites'
+import React, { Component, PropTypes, } from 'react'
+import { ListView } from 'react-native'
+import Faves from './Faves'
 import Loader from '../../components/Loader'
 import { getFavedPhotos } from '../../lib/databaseHelpers.js'
-import { toJson } from 'unsplash-js/native'
-import { unsplash } from '../../config/apikeys.js'
 import { getFullPhotoData } from '../../lib/unsplashHelpers.js'
-import realm, {Faves} from '../../config/models.js'
-import {styles} from './styles.js'
+import realm from '../../config/models.js'
 
-class FavouritesContainer extends Component {
+class FavesContainer extends Component {
 
     static propTypes = {
         route: PropTypes.object.isRequired,
@@ -27,16 +24,14 @@ class FavouritesContainer extends Component {
         super(props);
 
         this.ds =
-            new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+            new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
 
         this.state = {
             dataSource: this.ds,
             isLoading: true,
         };
 
-        realm.addListener('change', (changes) => {
-            console.log("Realm Changed...!");
-            console.log(changes)
+        realm.addListener('change', () => {
             this.getFavedPhotosJson()
         });
 
@@ -66,7 +61,7 @@ class FavouritesContainer extends Component {
                     dataSource: this.ds.cloneWithRows(fullJsonResults)
                 })
             })
-            .catch(err => console.log(`error fetching photos JSON: ${err}`))
+            .catch(err => alert(`error fetching photos JSON: ${err}`))
     }
     componentDidMount() {
         this.getFavedPhotosJson()
@@ -75,7 +70,7 @@ class FavouritesContainer extends Component {
         if (this.state.dataSource && this.state.isLoading) {
             this.setState({
                 isLoading: false,
-            });
+            })
         }
     }
     componentWillUnmount() {
@@ -84,47 +79,25 @@ class FavouritesContainer extends Component {
     }
 
     render() {
+        //console.log('faves container: ', this.state.dataSource)
         if (this.state.isLoading) {
             return (
                 <Loader />
             );
         } else {
-            if( this.state.dataSource.length > 0 ) {
+           // if( this.state.dataSource.length > 0 ) {
                 return (
-                    <Favourites photoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
-                );
-            } else {
-                return (
-                    <View style={styles.container}>
-                        <Text style={styles.text}>You haven't faved any photos yet.</Text>
-                    </View>
+                    <Faves photoBlob={this.state.dataSource} user={this.state.user} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
                 )
-            }
+            // } else {
+            //     return (
+            //         <View style={styles.container}>
+            //             <Text style={styles.text}>You haven't faved any photos yet.</Text>
+            //         </View>
+            //     )
+            // }
         }
     }
 }
 
-/*
-import realm from '../../config/models.js'
-for constructor of Faves:
-
-        // console.log('realm.objects(Fave)', realm.objects('Fave'))
-        // Observe Collection Notifications
-        // realm.objects('Fave').addListener((favourites, changes) => {
-        //     console.log('change!', favourites, changes)
-        //     // Update UI in response to inserted objects
-        //     // changes.insertions.forEach((index) => {
-        //     //     let insertedFavourite = favourites[index];
-        //     //     return true
-        //     // });
-
-        //     // Update UI in response to deleted objects
-        //     // changes.deletions.forEach((index) => {
-        //         // Deleted objects cannot be accessed directly
-        //         // Support for accessing deleted objects coming soon...
-        //         //...
-        //     //     return false
-        //     // });
-        // });
-*/
-export default FavouritesContainer;
+export default FavesContainer;

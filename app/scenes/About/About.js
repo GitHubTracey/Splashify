@@ -1,10 +1,8 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React from 'react'
+import { View, Text, Image } from 'react-native'
 import {
     StyleSheet,
-    Dimensions,
-} from 'react-native';
-import Router from '../../navigation/routes.js'
+} from 'react-native'
 
 export const styles = StyleSheet.create({
     container: {
@@ -12,16 +10,19 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-});
+})
 
+//Screen for brief overview of project
+//TODO: complete this screen
 const About = () => {
     return (
         <View style={styles.container}>
             <Image
                 source={require('../../images/red-logo.png')}
                 />
+                <Text>Splashify! using the Unsplash API</Text>
         </View>
-    );
+    )
 }
 
-export default About;
+export default About

@@ -1,12 +1,13 @@
+---
 layout: project
-title: Project 1 / Part 2 - REDit
-due: Monday, October 24th (beginning of class)
+title: Project 4 - Splashify
+due: Monday, November 21st (beginning of class)
 class: gh-check
 ---
 
-Continue your Product Hunt / Reddit clone by adding the server-side components. Your project should have a user login, and allow users to create new posts.
+Build a mobile application using React Native that accesses the Unsplash API to allow users to view recently posted photos, search for photos, and store their favourite photos in a database.
 
-Your project must include a server (Node/Express), a connected database (PostgreSQL), a connected client (React), and form with submit and data validation (Redux-Form), and user authentication.
+Your project must be cross-platform (iOS/Android) and contain a database (Realm).
 
 ## Requirements
 
@@ -14,60 +15,56 @@ Your project must include a server (Node/Express), a connected database (Postgre
 
 Your project must:
 
-- [ ] Be pushed to Github 
-- [ ] Use [descriptive Git commits](http://chris.beams.io/posts/git-commit/)
-- [ ] Use small, single purpose Git commits
+- [X] Be pushed to Github 
+- [X] Use [descriptive Git commits](http://chris.beams.io/posts/git-commit/)
+- [X] Use small, single purpose Git commits
 - [ ] Contain `README.md` with project summary and setup
-- [ ] Contain a valid [`package.json`](http://browsenpm.org/package.json) file with all appropriate fields completed
-- [ ] Contain `.gitignore` file (ignoring `node_modules` and system files)
-- [ ] Contain this self-evaluated spec checklist renamed `specs.md`
-- [X] Use ESLint with the [AirBnB style-guide](https://github.com/airbnb/javascript)
-- [X] Run without errors with `npm start`
-- [X] Have appropriate files compiled into a `build` directory
+- [X] Contain a valid [`package.json`](http://browsenpm.org/package.json) file with all appropriate fields completed
+- [X] Contain `.gitignore` file (ignoring `node_modules` and system files)
+- [X] Contain this self-evaluated spec checklist renamed `specs.md`
+- [ ] Use ESLint with the [AirBnB style-guide](https://github.com/airbnb/javascript)
 
 ### Functional
 
 Your project must:
 
-- [ ] Contain a login form allowing users to authenticate with email and password
-- [ ] Persist logged in state on page reload
-- [ ] Contain a functioning logout button
-- [ ] Allow logged-in users to create posts
-- [ ] Require that new posts contain both a title and a description
-- [ ] Allow users to optionally supply a URL linking to the content
-- [ ] Allow users to select a post category
-- [ ] Persist new posts and up-votes after page reload
-- [ ] Provide user feedback resulting from invalid input data
-- [ ] Disable the submit button when data in form fields are invalid
+- [ ] Display a feed of the ten latest photos posted to Unsplash
+- [X] Display photos in a Lightbox scene when tapped
+- [X] Allow users to save an image to their camera roll from the Lightbox scene
+- [X] Display data about a photographer when an Unsplash username is tapped
+- [ ] Allow users to search for photos using a text-based keyword
+- [ ] Display a list of recent collections in the default Search scene by default
+- [ ] Display a feed of the ten most popular collection photos in a Collection scene when a collection cover image is tapped from the Search scene
+- [X] Display fetched search results in a grid format
+- [X] Allow users to favourite and un-favourite photos from the Lightbox scene, and save references to those photos in a mobile database
+- [X] Display previously favourited photos in a Faves scene in a grid format, and in reverse chronological order (i.e. most recently saved first)
+- [ ] Display a loading indicator when data is being fetched
+- [ ] Contain About, Collection, Faves, Lightbox, Loading, Recent, Search, and User scenes 
 
 ### Development
 
 Your project must:
 
-- [ ] Implement form validation (client-side)
-- [ ] Use JSON Web Tokens (client-side)
-- [ ] Use ES2015 Promises when communicating between client and server (server-side)
-- [ ] Use Passport to authenticate user logins and passwords (server-side)
-- [ ] Sanitize data (server-side)
-- [ ] Implement data validation using schema (server-side)
-- [ ] Implement sessions (server-side)
-- [ ] Make efficient database queries (server-side)
-- [ ] Save state to database (server-side)
+- [X] Contain components built using valid JSX
+- [X] Use ES2015 `import` and `export`
+- [X] Contain components created using `React.Component`, `const`, or `function` only
+- [X] Implement "presentational" and "container" components appropriately throughout the application
+- [X] Make appropriate use of React Native's UI components (including `<View>`, `<Text>`, `<Image>`, `<ListView>`, `<TouchableHighlight>`, etc.)
+- [X] Implement styles on a per-component basis using `Stylesheet.Create`
+- [X] Use [React Native Navigation](https://github.com/wix/react-native-navigation) to implement a cross-platform navigator and tab bar for scene navigation
+- [X] Use [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) for icon assets throughout the app (specifically, the Octicon library)
+- [X] Use [Realm React Native](https://realm.io/docs/react-native/latest/) as a database
 
 ### Quality
 
 Your project must:
 
-- [ ] Contain an organized file tree separating client and server code
+- [X] Contain an organized file tree separating stateless components from stateful scenes, as well as sub-directories for organizing files with configuration code reusable functions
 - [ ] Be free of lint errors from ESLint
 
 ### Stretch Goals
 
 Want to challenge yourself? Your project could also:
 
-- [ ] Display user Gravatar when logged in
-- [ ] Allow users to create new categories
-- [ ] Reload page state from save state to localStorage
-- [ ] Setup OAuth2 login for GitHub, Twitter and/or Facebook
-
-## Submission
+- [ ] Include a Random scene that randomly displays a photos, and allows a user to swipe the screen to load another
+- [ ] Add the ability to dynamically append additional results wherever the Unsplash API permits pagination (latest photos, search results, etc.)

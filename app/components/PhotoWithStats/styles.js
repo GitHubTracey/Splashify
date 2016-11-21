@@ -3,31 +3,32 @@ import {
 } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     userAvatar: {
         position: 'absolute',
-        bottom: 0,
+        top: 0,
         flexDirection: 'row',
         flex: 1,
+    },
+    userStats: {
+        flex: 1,
+        position: 'absolute',
+        height: 90,
     },
     stats: {
         flexDirection: 'row',
         flex: 1,
         backgroundColor: 'white',
-        zIndex: 2
+        zIndex: 2,
+        bottom: 0,
     },
     left: {
-        flex: 0.6,
+        flex: 0.5,
         marginLeft: 10,
         flexDirection: 'row',
         justifyContent: 'flex-start',
     },
     right: {
-        flex: 0.4,
+        flex: 0.5,
         marginRight: 10,
         flexDirection: 'row',
         justifyContent: 'flex-end',
