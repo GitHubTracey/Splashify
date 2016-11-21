@@ -1,8 +1,8 @@
-import React, { Component, PropTypes, } from 'react';
+import React, { PropTypes, } from 'react';
 import { View, } from 'react-native';
 import About from './About'
 
-class AboutContainer extends Component {
+class AboutContainer extends React.Component {
 
     static propTypes = {
         route: PropTypes.object.isRequired,

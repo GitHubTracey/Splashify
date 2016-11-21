@@ -1,8 +1,8 @@
-import React, { Component, PropTypes, } from 'react'
+import React, { PropTypes, } from 'react'
 import Lightbox from './Lightbox'
 import { isPhotoFaved, updatePhotoFave, } from '../../lib/databaseHelpers.js'
 
-class LightboxContainer extends Component {
+class LightboxContainer extends React.Component {
 
     static propTypes = {
         photoBlob: React.PropTypes.object.isRequired,

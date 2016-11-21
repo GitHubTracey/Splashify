@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, } from 'react'
+import React, { PropTypes, } from 'react'
 import { ListView } from 'react-native'
 import Faves from './Faves'
 import Loader from '../../components/Loader'
@@ -6,7 +6,7 @@ import { getFavedPhotos } from '../../lib/databaseHelpers.js'
 import { getFullPhotoData } from '../../lib/unsplashHelpers.js'
 import realm from '../../config/models.js'
 
-class FavesContainer extends Component {
+class FavesContainer extends React.Component {
 
     static propTypes = {
         route: PropTypes.object.isRequired,

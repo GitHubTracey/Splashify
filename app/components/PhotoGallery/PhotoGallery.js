@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React from 'react';
 import { View, ListView, Dimensions, } from 'react-native';
 import Photo from '../Photo'
 import { styles } from './styles.js'
@@ -6,7 +6,7 @@ import { styles } from './styles.js'
 const width = (Dimensions.get('window').width - 6) / 3,
     flex = 1 / 3;
 
-class PhotoGallery extends Component {
+class PhotoGallery extends React.Component {
     render() {
         //console.log('PhotoGallery', this.props)
         return (
@@ -17,7 +17,7 @@ class PhotoGallery extends Component {
                     enableEmptySections={true}
                     renderRow={(data) =>
                         <View style={styles.photoPadding}>
-                            <Photo photo={data} nav={this.props.nav} mainNav={this.props.mainNav} flex={flex} height={width} width={width} />
+                            <Photo photo={data} resizeMode={'contain'} nav={this.props.nav} mainNav={this.props.mainNav} flex={flex} height={width} width={width} />
                         </View>
                     }
                     />
