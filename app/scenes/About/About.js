@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React from 'react'
+import { View, Text, Image } from 'react-native'
 import {
     StyleSheet,
-} from 'react-native';
+} from 'react-native'
 
 export const styles = StyleSheet.create({
     container: {
@@ -10,8 +10,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-});
+})
 
+//Screen for brief overview of project
+//TODO: complete this screen
 const About = () => {
     return (
         <View style={styles.container}>
@@ -20,7 +22,7 @@ const About = () => {
                 />
                 <Text>Splashify! using the Unsplash API</Text>
         </View>
-    );
+    )
 }
 
-export default About;
+export default About

@@ -25,6 +25,7 @@ class PhotoGallery extends Component {
         );
     }
 }
+
 PhotoGallery.propTypes = {
     photoBlob: React.PropTypes.object.isRequired,
     nav: React.PropTypes.object.isRequired,

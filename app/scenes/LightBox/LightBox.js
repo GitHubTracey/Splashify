@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import {
     View, Image, Text, TouchableOpacity, CameraRoll, Platform,
-} from 'react-native';
+} from 'react-native'
 import { styles, avatarStyles, statStyles } from './styles.js'
 import Octicons from 'react-native-vector-icons/Octicons'
 import { _goBack } from '../../lib/navigationHelpers.js'
@@ -49,39 +49,41 @@ const Lightbox = (props) => {
                         {renderIcon("x", iconSize, 'white')}</Text>
                 </View>
             </View>
-            <View style={styles.imageContainer}>
-                <Image
-                    resizeMode={'contain'}
-                    source={{ uri: props.photoBlob.urls.raw }}
-                    style={styles.image}
-                    >
-                    <View style={styles.actionIconsContainer}>
-                        {Platform.OS === 'ios' &&
-                            <View style={styles.left}>
+            <View style={styles.imagePositionContainer}>
+                <View style={styles.imageContainer}>
+                    <Image
+                        resizeMode={'contain'}
+                        source={{ uri: props.photoBlob.urls.raw }}
+                        style={styles.image}
+                        >
+                        <View style={styles.actionIconsContainer}>
+                            {Platform.OS === 'ios' &&
+                                <View style={styles.left}>
+                                    <TouchableOpacity
+                                        style={styles.close}
+                                        onPress={() => {
+                                            alert("saving photo to camera roll", props.photoBlob.urls.raw)
+                                            CameraRoll.saveToCameraRoll(props.photoBlob.urls.raw, "photo")
+                                        }
+                                        }
+                                        activeOpacity={75 / 100}>
+                                        {renderIcon("cloud-download", iconSize, '#999999')}
+                                    </TouchableOpacity>
+                                </View>
+                            }
+                            <View style={styles.right}>
                                 <TouchableOpacity
                                     style={styles.close}
                                     onPress={() => {
-                                        alert("saving photo to camera roll", props.photoBlob.urls.raw)
-                                        CameraRoll.saveToCameraRoll(props.photoBlob.urls.raw, "photo")
-                                    }
-                                    }
+                                        props.updateFaved()
+                                    } }
                                     activeOpacity={75 / 100}>
-                                    {renderIcon("cloud-download", iconSize, '#999999')}
+                                    {renderFaveIcon(props.isFaved, "bookmark", iconSize)}
                                 </TouchableOpacity>
                             </View>
-                        }
-                        <View style={styles.right}>
-                            <TouchableOpacity
-                                style={styles.close}
-                                onPress={() => {
-                                    props.updateFaved()
-                                } }
-                                activeOpacity={75 / 100}>
-                                {renderFaveIcon(props.isFaved, "bookmark", iconSize)}
-                            </TouchableOpacity>
                         </View>
-                    </View>
-                </Image>
+                    </Image>
+                </View>
             </View>
             <View style={styles.statsContainer}>
                 <View style={statStyles.container}>
@@ -107,4 +109,4 @@ Lightbox.propTypes = {
     nav: React.PropTypes.object.isRequired,
 }
 
-export default Lightbox;
+export default Lightbox

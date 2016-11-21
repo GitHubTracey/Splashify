@@ -1,7 +1,7 @@
-import React, { Component, PropTypes, } from 'react';
+import React, { Component, PropTypes, } from 'react'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
-import Random from './Random';
+import Random from './Random'
 import Loader from '../../components/Loader'
 
 class RandomContainer extends Component {
@@ -30,11 +30,11 @@ class RandomContainer extends Component {
             .then(json => {
                 this.setState({ randomPhoto: json })
             })
-            .catch(error => console.log(`Error fetching JSON: ${error}`));
+            .catch(error => alert(`Error fetching JSON: ${error}`))
     }
     componentDidUpdate() {
         if (this.state.randomPhoto && this.state.isLoading) {
-            this.setState({ isLoading: false, });
+            this.setState({ isLoading: false, })
         }
     }
 
@@ -42,7 +42,7 @@ class RandomContainer extends Component {
         if (this.state.isLoading) {
             return (
                 <Loader />
-            );
+            )
         } else {
             return (
                     <Random randomPhoto={this.state.randomPhoto} nav={this.props.navigator} mainNav={this.props.navigation.getNavigator('mainStack')} />
@@ -51,4 +51,4 @@ class RandomContainer extends Component {
     }
 }
 
-export default RandomContainer;
+export default RandomContainer

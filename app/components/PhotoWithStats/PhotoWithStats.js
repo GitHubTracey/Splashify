@@ -18,10 +18,7 @@ const renderLocation = (location) => {
             return <Text>{location.city}</Text>
         return <Text>{location.country}</Text>
     }
-    else {
-        return {}
-    }
-
+    else {  return {} } 
 }
 
 const PhotoWithStats = (props) => {

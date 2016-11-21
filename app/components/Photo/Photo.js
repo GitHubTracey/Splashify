@@ -12,7 +12,7 @@ const Photo = (props) => {
                 onPress={_goToLightbox(props.mainNav, props.photo, props.photo.user).bind(this)}
                 activeOpacity={75 / 100}>
                 <Image
-                    resizeMode={'cover'}
+                    resizeMode={'contain'}
                     source={{ uri: props.photo.urls.raw }}
                     style={{width: props.width, height: props.height, flex: props.flex, backgroundColor: 'transparent' }}
                     />
@@ -28,16 +28,5 @@ Photo.propTypes = {
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
 }
-/*
-            <TouchableOpacity
-                style={styles.touchableArea}
-                onPress={_goToLightbox(props.mainNav, props.photo).bind(this)}
-                activeOpacity={75 / 100}>
-                <Image
-                    resizeMode={'cover'}
-                    source={{ uri: props.photo.urls.raw }}
-                    style={{width: props.width, height: props.height, backgroundColor: 'transparent' }}
-                    />
-            </TouchableOpacity>
-*/
+
 export default Photo;

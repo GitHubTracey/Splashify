@@ -1,15 +1,13 @@
-import React, { Component, } from 'react';
-import navigationStyles from './styles'
-//build <TabNavigation> here
+import React, { Component, } from 'react'
 import {
   StackNavigation,
   TabNavigation,
   TabNavigationItem as TabItem,
-} from '@exponent/ex-navigation';
+} from '@exponent/ex-navigation'
 
 import { Router } from './routes.js'
 import Octicons from 'react-native-vector-icons/Octicons'
-const iconSize = 24;
+const iconSize = 24
 
 
 // function getColor(isSelected) {
@@ -32,10 +30,7 @@ class NavigationLayout extends Component {
   static route = {
     navigationBar: {
       visible: false,
-      backgroundColor: 'white',
-      // backgroundColor: 'rgba(255,255,255,0.5)',
-      // tintColor: '#222',
-      // translucent: true,
+      backgroundColor: 'white'
     }
   }
   render() {

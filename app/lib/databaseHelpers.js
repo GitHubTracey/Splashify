@@ -5,7 +5,7 @@ import realm from '../config/models.js';
     We can use it to conditionally render the colour of the star icon in the Photobox scene.
 */
 export const isPhotoFaved = (photoId) => {
-    console.log('check if isPhotoFaved: ', photoId)
+    //console.log('check if isPhotoFaved: ', photoId)
     let favedPhoto = realm.objects('Faves').filtered('id==$0', photoId)
     // console.log(favedPhoto)
     // console.log('length > 0?', favedPhoto.length > 0)
@@ -17,16 +17,16 @@ export const isPhotoFaved = (photoId) => {
     function to take the appropriate write action when the star icon is tapped in the Photobox scene.
 */
 export const updatePhotoFave = (photoId, isPhotoFaved) => {
-    console.log('updatePhotoFave: ', photoId, ' isPhotoFaved: ', isPhotoFaved)
+    //console.log('updatePhotoFave: ', photoId, ' isPhotoFaved: ', isPhotoFaved)
     if (isPhotoFaved) {
-        console.log('photo is faved')
+        //console.log('photo is faved')
         let photo = realm.objects('Faves').filtered('id==$0', photoId)
 
         realm.write(() => {
             realm.delete(photo)
         })
     } else {
-        console.log('photo not yet faved')
+        //console.log('photo not yet faved')
         realm.write(() => {
             realm.create('Faves', { id: photoId, faved_on: new Date() })
         })
@@ -36,7 +36,7 @@ export const updatePhotoFave = (photoId, isPhotoFaved) => {
     Get a list of photos that have been faved
 */
 export const getFavedPhotos = () => {
-    console.log('getFavedPhotos ')
+    //console.log('getFavedPhotos ')
     //sort in "reverse" - newest at the top
     return realm.objects('Faves').sorted('faved_on', true)
 }

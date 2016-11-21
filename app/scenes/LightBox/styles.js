@@ -15,15 +15,21 @@ export const styles = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
     },
-    imageContainer: {
+    imagePositionContainer: {
         flex: 0.7, 
         flexDirection: 'column',
+        justifyContent: 'center', 
+        alignItems: 'center',
+    },
+    imageContainer: {
+        justifyContent: 'flex-start', 
+        alignItems: 'center',
     },
     actionIconsContainer: {
+        position: 'absolute',
+        top: 0,
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-start', 
-        alignItems: 'flex-start',
     },
     statsContainer: {
         position: 'absolute',

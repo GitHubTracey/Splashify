@@ -1,4 +1,4 @@
-import Unsplash, { toJson } from 'unsplash-js/native';
+import { toJson } from 'unsplash-js/native';
 import { unsplash } from '../config/apikeys.js';
 
 export const getFullPhotoData = (photosJson) => {
@@ -8,6 +8,6 @@ export const getFullPhotoData = (photosJson) => {
             .then(json => {
                 return json;
             })
-            .catch(error => console.log(`getFullPhotoData: Error fetching photo JSON: ${error}`));
+            .catch(error => alert(`getFullPhotoData: Error fetching photo JSON: ${error}`));
     }));
 }
