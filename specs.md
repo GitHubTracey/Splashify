@@ -18,7 +18,7 @@ Your project must:
 - [X] Be pushed to Github 
 - [X] Use [descriptive Git commits](http://chris.beams.io/posts/git-commit/)
 - [X] Use small, single purpose Git commits
-- [ ] Contain `README.md` with project summary and setup
+- [X] Contain `README.md` with project summary and setup
 - [X] Contain a valid [`package.json`](http://browsenpm.org/package.json) file with all appropriate fields completed
 - [X] Contain `.gitignore` file (ignoring `node_modules` and system files)
 - [X] Contain this self-evaluated spec checklist renamed `specs.md`
