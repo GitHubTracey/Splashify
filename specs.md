@@ -18,11 +18,11 @@ Your project must:
 - [X] Be pushed to Github 
 - [X] Use [descriptive Git commits](http://chris.beams.io/posts/git-commit/)
 - [X] Use small, single purpose Git commits
-- [ ] Contain `README.md` with project summary and setup
+- [X] Contain `README.md` with project summary and setup
 - [X] Contain a valid [`package.json`](http://browsenpm.org/package.json) file with all appropriate fields completed
 - [X] Contain `.gitignore` file (ignoring `node_modules` and system files)
 - [X] Contain this self-evaluated spec checklist renamed `specs.md`
-- [ ] Use ESLint with the [AirBnB style-guide](https://github.com/airbnb/javascript)
+- [X] Use ESLint with the [AirBnB style-guide](https://github.com/airbnb/javascript)
 
 ### Functional
 
@@ -38,7 +38,7 @@ Your project must:
 - [X] Display fetched search results in a grid format
 - [X] Allow users to favourite and un-favourite photos from the Lightbox scene, and save references to those photos in a mobile database
 - [X] Display previously favourited photos in a Faves scene in a grid format, and in reverse chronological order (i.e. most recently saved first)
-- [ ] Display a loading indicator when data is being fetched
+- [X] Display a loading indicator when data is being fetched
 - [ ] Contain About, Collection, Faves, Lightbox, Loading, Recent, Search, and User scenes 
 
 ### Development
@@ -60,7 +60,7 @@ Your project must:
 Your project must:
 
 - [X] Contain an organized file tree separating stateless components from stateful scenes, as well as sub-directories for organizing files with configuration code reusable functions
-- [ ] Be free of lint errors from ESLint
+- [X] Be free of lint errors from ESLint
 
 ### Stretch Goals
 
