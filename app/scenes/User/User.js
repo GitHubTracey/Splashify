@@ -24,9 +24,12 @@ const renderPortfolioURL = (url) => {
             : <Text></Text>
     )
 }
-
+// show profile pic in circle
+// provide name, location and portfolio_url
+// display user bio
+// then list of photos in grid layout as a gallary at the bottom
 const User = (props) => {
-        console.log('User', props)
+        //console.log('User', props)
     return (
         <ScrollView>
             <View style={styles.container}>

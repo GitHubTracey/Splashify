@@ -1,7 +1,6 @@
 import React, { Component, PropTypes, } from 'react';
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
-import { randomStyles } from './styles.js'
 import Random from './Random';
 import Loader from '../../components/Loader'
 

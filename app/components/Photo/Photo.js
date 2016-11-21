@@ -2,11 +2,10 @@ import React from 'react';
 import {
     View, Image, TouchableOpacity
 } from 'react-native';
-import { styles } from './styles.js'
 import { _goToLightbox } from '../../lib/navigationHelpers.js'
 
 const Photo = (props) => {
-        console.log('Photo  props.photo: ',  props.photo)
+        //console.log('Photo  props.photo: ',  props.photo)
     return (
         <View>
             <TouchableOpacity

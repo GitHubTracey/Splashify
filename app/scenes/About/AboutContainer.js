@@ -1,8 +1,6 @@
 import React, { Component, PropTypes, } from 'react';
-import { View, Text } from 'react-native';
+import { View, } from 'react-native';
 import About from './About'
-import Router from '../../navigation/routes.js'
-import { _goToUser } from '../../lib/navigationHelpers.js'
 
 class AboutContainer extends Component {
 

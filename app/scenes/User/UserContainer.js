@@ -1,5 +1,5 @@
-import React, { Component, PropTypes, } from 'react';
-import { View, ListView } from 'react-native';
+import React, { Component, PropTypes, } from 'react'
+import { ListView } from 'react-native'
 import User from './User'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'

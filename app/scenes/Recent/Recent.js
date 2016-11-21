@@ -1,8 +1,12 @@
 import React from 'react';
-import { View, Text, ListView, Dimensions} from 'react-native';
+import { View, ListView} from 'react-native';
 import { styles } from './styles.js'
 import PhotoWithStats from '../../components/PhotoWithStats'
 
+// Takes recentPhotoBlob (set of photos) and opens each as a PhotoWithStats
+// photos need: flex for width, 
+// user avatar: requires user info & opacity for picture (in this case we want a white background, so opacity = 1)
+// mainNav passed in order to allow lightbox to appear on top of mainStack
 const Recent = (props) => {
     return (
         <View style={styles.container}>
@@ -22,18 +26,4 @@ Recent.propTypes = {
     mainNav: React.PropTypes.object.isRequired,
 }
 
-//      <PhotoGallery photoBlob={props.recentPhotoBlob} />
 export default Recent;
-
-/*
-            <View>
-                <Text>Print out the Props</Text>
-                <ListView
-                    dataSource={props.recentPhotoBlob}
-                    renderRow={(data) =>
-                        <Photo photo={data} />
-                }
-                    renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-                    />
-            </View>
-*/

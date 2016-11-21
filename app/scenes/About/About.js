@@ -2,9 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import {
     StyleSheet,
-    Dimensions,
 } from 'react-native';
-import Router from '../../navigation/routes.js'
 
 export const styles = StyleSheet.create({
     container: {
@@ -20,6 +18,7 @@ const About = () => {
             <Image
                 source={require('../../images/red-logo.png')}
                 />
+                <Text>Splashify! using the Unsplash API</Text>
         </View>
     );
 }
