@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, } from 'react'
+import React, { PropTypes, } from 'react'
 import { ListView, } from 'react-native'
 import Recent from './Recent'
 import { toJson } from 'unsplash-js/native'
@@ -7,7 +7,7 @@ import Loader from '../../components/Loader'
 import {getFullPhotoData} from '../../lib/unsplashHelpers.js'
 
 
-class RecentContainer extends Component {
+class RecentContainer extends React.Component {
 
     static propTypes = {
         route: PropTypes.object.isRequired,
@@ -34,7 +34,7 @@ class RecentContainer extends Component {
     }
 
     getRecentPhotosJson() {
-        unsplash.photos.listPhotos(1, 2, 'latest')
+        unsplash.photos.listPhotos(1, 5, 'latest')
         .then(toJson)
         .then(json => {
             //your code

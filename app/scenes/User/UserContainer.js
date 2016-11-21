@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, } from 'react'
+import React, { PropTypes, } from 'react'
 import { ListView } from 'react-native'
 import User from './User'
 import { toJson } from 'unsplash-js/native'
@@ -7,7 +7,7 @@ import Loader from '../../components/Loader'
 import { getFullPhotoData } from '../../lib/unsplashHelpers.js'
 
 
-class UserContainer extends Component {
+class UserContainer extends React.Component {
 
     static propTypes = {
         username: React.PropTypes.string.isRequired,

@@ -3,7 +3,7 @@ import {
     View, Image, TouchableOpacity
 } from 'react-native';
 import { _goToLightbox } from '../../lib/navigationHelpers.js'
-
+//'contain'
 const Photo = (props) => {
         //console.log('Photo  props.photo: ',  props.photo)
     return (
@@ -12,7 +12,7 @@ const Photo = (props) => {
                 onPress={_goToLightbox(props.mainNav, props.photo, props.photo.user).bind(this)}
                 activeOpacity={75 / 100}>
                 <Image
-                    resizeMode={'contain'}
+                    resizeMode={props.resizeMode}
                     source={{ uri: props.photo.urls.raw }}
                     style={{width: props.width, height: props.height, flex: props.flex, backgroundColor: 'transparent' }}
                     />
@@ -27,6 +27,7 @@ Photo.propTypes = {
     height: React.PropTypes.number.isRequired,
     nav: React.PropTypes.object.isRequired,
     mainNav: React.PropTypes.object.isRequired,
+    resizeMode: React.PropTypes.string.isRequired,
 }
 
 export default Photo;

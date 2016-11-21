@@ -1,10 +1,10 @@
-import React, { Component, PropTypes, } from 'react'
+import React, { PropTypes, } from 'react'
 import { toJson } from 'unsplash-js/native'
 import { unsplash } from '../../config/apikeys.js'
 import Random from './Random'
 import Loader from '../../components/Loader'
 
-class RandomContainer extends Component {
+class RandomContainer extends React.Component {
 
     static propTypes = {
         route: PropTypes.object.isRequired,

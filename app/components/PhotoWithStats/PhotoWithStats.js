@@ -29,12 +29,15 @@ const PhotoWithStats = (props) => {
         height = Dimensions.get('window').height * 0.5
 
     if (props.photo.location) {
+        const resizeMode = 'contain',
+            lightStyle=true
+    
         return (
             <View>
-                <Photo photo={props.photo} nav={props.nav} flex={props.photoFlex} mainNav={props.mainNav} height={height} width={width} />
+                <Photo photo={props.photo} resizeMode={resizeMode} nav={props.nav} flex={props.photoFlex} mainNav={props.mainNav} height={height} width={width} />
                 <View style={styles.userStats}>
                     <View style={styles.userAvatar}>
-                        <UserAvatar user={props.user} lightStyle={true} opacity={props.avatarOpacity} nav={props.nav} />
+                        <UserAvatar user={props.user} lightStyle={lightStyle} opacity={props.avatarOpacity} nav={props.nav} />
                     </View>
                     <Text style={styles.separator}></Text>
                     <View style={styles.stats}>
