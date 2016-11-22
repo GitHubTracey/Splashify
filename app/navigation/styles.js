@@ -10,7 +10,8 @@ export const navigationStyles = StyleSheet.create({
  
 export const styles = StyleSheet.create({
     header: {
-        height: 20
+        height: 24,
+        fontSize: 24,
     },
 
     selectedItemStyle: {

@@ -21,15 +21,10 @@ export const avatarStyles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    textLight: {
+    text: {
         margin: 12,
         fontSize: 16,
         color: 'black',
-    },
-    textDark: {
-        margin: 12,
-        fontSize: 16,
-        color: 'white',
     },
     touchableArea : {
         flex: 1,

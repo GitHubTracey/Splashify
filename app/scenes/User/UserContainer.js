@@ -36,7 +36,7 @@ class UserContainer extends React.Component {
     }
 
     getUserPhotosJson() {
-        unsplash.users.photos(this.props.username, 1, 4, 'latest')
+        unsplash.users.photos(this.props.username, 1, 5, 'latest')
             .then(toJson)
             .then(json => {
                 return getFullPhotoData(json)
