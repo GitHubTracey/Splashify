@@ -8,7 +8,7 @@ import UserAvatar from '../UserAvatar'
 import TimeAgo from 'react-native-timeago'
 
 const width = Dimensions.get('window').width;
-var height = 0;
+var height = 200;
 
 const renderLocation = (location) => {
     if (location) {
