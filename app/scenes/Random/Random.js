@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Dimensions, } from 'react-native';
+import { View, Text, Dimensions, } from 'react-native';
 import { styles } from './styles.js'
 import Photo from '../../components/Photo'
 import UserAvatar from '../../components/UserAvatar'
@@ -12,15 +12,26 @@ const height = Dimensions.get('window').height,
 // pass to the photo with full width, pass mainNav for lightbox
 // UserAvatar at the bottom of the screen
 const Random = (props) => {
-    //console.log('Random, props: ', props)
+    // console.log('Random, props: ', props)
+    if( props.randomPhoto.user)
+    {
     return (
         <View style={styles.container}>
-            <Photo photo={props.randomPhoto} resizeMode={'cover'} flex={1} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
+            <Photo photo={props.randomPhoto} photoResizeMode={'cover'} flex={1} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
             <View style={styles.userAvatar}>
-                <UserAvatar user={props.randomPhoto.user} lightStyle={true} opacity={0.75} nav={props.nav} />
+                <UserAvatar user={props.randomPhoto.user} opacity={0.75} nav={props.nav} />
             </View>
         </View>
     )
+    } else {(
+        <View style={styles.container}>
+            <Photo photo={props.randomPhoto} photoResizeMode={'cover'} flex={1} nav={props.nav} mainNav={props.mainNav} height={height} width={width} />
+            <View style={styles.userAvatar}>
+                <Text>No User Data Provided</Text>
+            </View>
+        </View>
+    )
+    }
 }
 Random.propTypes = {
     randomPhoto: React.PropTypes.object.isRequired,

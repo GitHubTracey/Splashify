@@ -18,7 +18,7 @@ const renderLocation = (location) => {
             return <Text>{location.city}</Text>
         return <Text>{location.country}</Text>
     }
-    else {  return {} } 
+    else { return {} }
 }
 
 const PhotoWithStats = (props) => {
@@ -29,20 +29,19 @@ const PhotoWithStats = (props) => {
         height = Dimensions.get('window').height * 0.5
 
     if (props.photo.location) {
-        const resizeMode = 'contain',
-            lightStyle=true
-    
         return (
-            <View>
-                <Photo photo={props.photo} resizeMode={resizeMode} nav={props.nav} flex={props.photoFlex} mainNav={props.mainNav} height={height} width={width} />
+            <View style={styles.container}>
+                <View style={styles.photoContainer}>
+                    <Photo photo={props.photo} photoResizeMode={'cover'} height={height} width={width} flex={props.photoFlex} nav={props.nav} mainNav={props.mainNav} />
+                </View>
                 <View style={styles.userStats}>
                     <View style={styles.userAvatar}>
-                        <UserAvatar user={props.user} lightStyle={lightStyle} opacity={props.avatarOpacity} nav={props.nav} />
+                        <UserAvatar user={props.user} opacity={props.avatarOpacity} nav={props.nav} />
                     </View>
                     <Text style={styles.separator}></Text>
                     <View style={styles.stats}>
                         <View style={styles.left}>
-                            <Text><TimeAgo time={props.photo.created_at} /></Text>
+                            <Text style={styles.timeText}><TimeAgo time={props.photo.created_at} /></Text>
                         </View>
                         <View style={styles.right}>
                             {renderLocation(props.photo.location)}
@@ -54,7 +53,7 @@ const PhotoWithStats = (props) => {
     } else {
         return (
             <View>
-                <Photo photo={props.photo} nav={props.nav} flex={props.photoFlex} mainNav={props.mainNav} height={height} width={width} />
+                <Photo photo={props.photo} photoResizeMode={'cover'} height={height} width={width} flex={props.photoFlex} nav={props.nav} mainNav={props.mainNav} />
                 <View style={styles.userStats}>
                     <View style={styles.userAvatar}>
                         <UserAvatar user={props.user} opacity={props.avatarOpacity} nav={props.nav} />
@@ -62,7 +61,7 @@ const PhotoWithStats = (props) => {
                     <Text style={styles.separator}></Text>
                     <View style={styles.stats}>
                         <View style={styles.left}>
-                            <Text><TimeAgo time={props.photo.created_at} /></Text>
+                            <Text style={styles.timeText}><TimeAgo time={props.photo.created_at} /></Text>
                         </View>
                     </View>
                 </View>
@@ -81,3 +80,41 @@ PhotoWithStats.propTypes = {
 }
 
 export default PhotoWithStats;
+
+/*
+        return (
+            <View>
+                <Photo photo={props.photo} photoResizeMode={'contain'} height={height} width={width} flex={props.photoFlex} nav={props.nav} mainNav={props.mainNav} />
+                <View style={styles.userStats}>
+                    <View style={styles.userAvatar}>
+                        <UserAvatar user={props.user} opacity={props.avatarOpacity} nav={props.nav} />
+                    </View>
+                    <Text style={styles.separator}></Text>
+                    <View style={styles.stats}>
+                        <View style={styles.left}>
+                            <Text><TimeAgo time={props.photo.created_at} /></Text>
+                        </View>
+                        <View style={styles.right}>
+                            {renderLocation(props.photo.location)}
+                        </View>
+                    </View>
+                </View>
+            </View>
+        )
+    } else {
+        return (
+            <View>
+                <Photo photo={props.photo} photoResizeMode={'contain'} height={height} width={width} flex={props.photoFlex} nav={props.nav} mainNav={props.mainNav}  />
+                <View style={styles.userStats}>
+                    <View style={styles.userAvatar}>
+                        <UserAvatar user={props.user} opacity={props.avatarOpacity} nav={props.nav} />
+                    </View>
+                    <Text style={styles.separator}></Text>
+                    <View style={styles.stats}>
+                        <View style={styles.left}>
+                            <Text><TimeAgo time={props.photo.created_at} /></Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+*/

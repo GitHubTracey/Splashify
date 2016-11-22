@@ -21,7 +21,7 @@ const UserAvatar = (props) => {
                         resizeMode={'contain'}
                         style={avatarStyles.image}
                         />
-                    <Text style={props.lightStyle===true ? avatarStyles.textLight: avatarStyles.textDark}>{props.user.name}</Text>
+                    <Text style={avatarStyles.text}>{props.user.name}</Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -33,6 +33,5 @@ UserAvatar.propTypes = {
     user: React.PropTypes.object.isRequired,
     opacity: React.PropTypes.number.isRequired,
     nav: React.PropTypes.object.isRequired,
-    lightStyle: React.PropTypes.bool.isRequired,
 }
 export default UserAvatar;

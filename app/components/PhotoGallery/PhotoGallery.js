@@ -17,7 +17,7 @@ class PhotoGallery extends React.Component {
                     enableEmptySections={true}
                     renderRow={(data) =>
                         <View style={styles.photoPadding}>
-                            <Photo photo={data} resizeMode={'contain'} nav={this.props.nav} mainNav={this.props.mainNav} flex={flex} height={width} width={width} />
+                            <Photo photo={data} photoResizeMode={'cover'} nav={this.props.nav} mainNav={this.props.mainNav} flex={flex} height={width} width={width} />
                         </View>
                     }
                     />

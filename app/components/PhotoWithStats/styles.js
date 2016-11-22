@@ -3,23 +3,35 @@ import {
 } from 'react-native';
 
 export const styles = StyleSheet.create({
-    userAvatar: {
-        position: 'absolute',
-        top: 0,
-        flexDirection: 'row',
+    container: {
         flex: 1,
+        justifyContent: 'center',
+    },
+    photoContainer: {
+        flex: 0.65,
+        justifyContent: 'flex-start',
     },
     userStats: {
-        flex: 1,
+        flex: 0.35,
+        flexDirection: 'column',
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 130,
+    },
+    userAvatar: {
         position: 'absolute',
-        height: 90,
+        top: 10,
+        flexDirection: 'row',
+        flex: 1,
     },
     stats: {
         flexDirection: 'row',
         flex: 1,
         backgroundColor: 'white',
-        zIndex: 2,
-        bottom: 0,
+        justifyContent: 'space-around',
+        position: 'absolute',
+        bottom: 10,
     },
     left: {
         flex: 0.5,
@@ -33,6 +45,19 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
     },
+    timeText: {
+        color: '#999999',
+    },
+    separator: {
+        marginRight: 10,
+        marginLeft: 10,
+        height: 1,
+        //height: StyleSheet.hairlineWidth,
+        backgroundColor: '#999999',
+    },
+});
+
+/*
     separator: {
         flex: 1,
         marginTop: 2,
@@ -42,4 +67,5 @@ export const styles = StyleSheet.create({
         height: StyleSheet.hairlineWidth,
         backgroundColor: '#999999',
     },
-});
+
+*/
